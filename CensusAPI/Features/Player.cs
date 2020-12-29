@@ -20,6 +20,8 @@
 
         public IPlayer IPlayer { get; }
 
+        public GameObject GameObject => PlayerStats.gameObject;
+
         public Vector3 Position
         {
             get => IPlayer.PlayerController.Position;
@@ -73,7 +75,94 @@
             }
         }
 
+        public float Stamina
+        {
+            get => PlayerStats.NetworksprintAmount;
+            set
+            {
+                PlayerStats.NetworksprintAmount = value;
+            }
+        }
+
+        public float MaxStamina
+        {
+            get => PlayerStats.NetworkmaxSprint;
+            set
+            {
+                PlayerStats.NetworkmaxSprint = value;
+            }
+        }
+
+        public bool InfiniteRun
+        {
+            get => PlayerStats.NetworkisInfRun;
+            set
+            {
+                PlayerStats.NetworkisInfRun = value;
+            }
+        }
+
+        public bool IsStaminaRecovering
+        {
+            get => PlayerStats.NetworksprintIsRecovering;
+            set
+            {
+                PlayerStats.NetworksprintIsRecovering = value;
+            }
+        }
+
+        public float BlinkTimer
+        {
+            get => PlayerStats.NetworkblinkTimer;
+            set
+            {
+                PlayerStats.NetworksprintAmount = value;
+            }
+        }
+
+        public float MaxBlinkTimer
+        {
+            get => PlayerStats.NetworkmaxBlink;
+            set
+            {
+                PlayerStats.NetworkmaxBlink = value;
+            }
+        }
+
+        public bool IsBlinking
+        {
+            get => PlayerStats.NetworkisBlinking;
+            set
+            {
+                PlayerStats.NetworkisBlinking = value;
+            }
+        }
+
+        public bool HasRing
+        {
+            get => PlayerStats.hasRing;
+        }
+
+        public bool IsGodMode
+        {
+            get => IPlayer.PlayerController.Network_godMode;
+            set
+            {
+                IPlayer.PlayerController.Network_godMode = value;
+            }
+        }
+
+
         public Inventory Inventory => PlayerStats.inv;
+
+        public int CurrentDimension
+        {
+            get => PlayerStats.CurrentDimension;
+            set
+            {
+                PlayerStats.CurrentDimension = CurrentDimension;
+            }
+        }
 
         public static Player Get(IPlayer ply)
         {
@@ -83,6 +172,26 @@
         public void SendChatMessage(string message)
         {
             IPlayer.SendPlayerChatMessage(message);
+        }
+
+        public void Kill()
+        {
+            IPlayer.KillPlayer();
+        }
+
+        public void Kill(PlayerStats.DeathTypes death, GameObject killer)
+        {
+            PlayerStats.KillPlayer(death, killer);
+        }
+
+        public void Cough()
+        {
+            PlayerStats.Cough();
+        }
+
+        public void Hurt(float damage, GameObject damager, PlayerStats.DeathTypes death = PlayerStats.DeathTypes.Unknown)
+        {
+            PlayerStats.TakeDamage(damage, damager, death);
         }
     }
 }

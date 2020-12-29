@@ -11,8 +11,6 @@
 
         public override string Name => "CensusCore";
 
-        public override string Prefix => Name;
-
         public override Version Version => new Version(1,0,0);
 
         public override string Author => "Census Team";

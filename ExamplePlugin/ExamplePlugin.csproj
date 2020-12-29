@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6801E9F5-F074-4538-8BB9-DBC2C3E79726}</ProjectGuid>
+    <ProjectGuid>{FD297964-9C82-4EF1-A286-EF991BC83C27}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CensusAPI</RootNamespace>
-    <AssemblyName>CensusAPI</AssemblyName>
+    <RootNamespace>ExamplePlugin</RootNamespace>
+    <AssemblyName>ExamplePlugin</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\SCPET-SERVER\SCP_ET_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp_publicized">
       <HintPath>..\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
     </Reference>
@@ -56,13 +53,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\RoleType.cs" />
-    <Compile Include="Features\Log.cs" />
-    <Compile Include="Features\Plugin.cs" />
-    <Compile Include="Features\Player.cs" />
-    <Compile Include="Features\Role.cs" />
-    <Compile Include="Features\Server.cs" />
+    <Compile Include="Commands\ExampleCommand.cs" />
+    <Compile Include="ExampleEventHandlers.cs" />
+    <Compile Include="ExamplePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CensusAPI\CensusAPI.csproj">
+      <Project>{6801e9f5-f074-4538-8bb9-dbc2c3e79726}</Project>
+      <Name>CensusAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Census\CensusCore.csproj">
+      <Project>{0fda1c2a-c6e7-488e-bc82-09cea4bc6507}</Project>
+      <Name>CensusCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

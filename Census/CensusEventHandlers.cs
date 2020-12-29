@@ -4,7 +4,7 @@
     using PluginFramework.Classes;
     using PluginFramework.Events.EventsArgs;
     using CensusAPI.Features;
-    public class EventHandlers: IScript
+    public class CensusEventHandlers: IScript
     {
         [PlayerEvent(PlayerEventType.OnPlayerJoinFinal)]
         public static void OnPlayerJoined(PlayerJoinFinalEvent ev)

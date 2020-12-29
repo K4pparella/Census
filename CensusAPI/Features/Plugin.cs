@@ -4,7 +4,13 @@
     public abstract class Plugin : PluginFramework.Plugin
     {
         public abstract string Name { get; }
-        public abstract string Prefix { get; }
+        public virtual string Prefix
+        {
+            get
+            {
+                return Name;
+            }
+        }
         public abstract Version Version { get; }
         public abstract string Author { get; }
         public override void OnEnable()

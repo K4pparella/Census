@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CensusCore</RootNamespace>
-    <AssemblyName>CensusCore</AssemblyName>
+    <AssemblyName>00CensusCore</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CensusCore.cs" />
-    <Compile Include="EventHandlers.cs" />
+    <Compile Include="CensusEventHandlers.cs" />
     <Compile Include="Harmony\Fixes\NRESpamFix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
