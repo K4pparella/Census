@@ -1,17 +1,22 @@
 ﻿namespace CensusCore
 {
+    using PluginFramework.Attributes;
+    using PluginFramework.Classes;
     using PluginFramework.Events.EventsArgs;
     using CensusAPI.Features;
-    public class EventHandlers
+    public class EventHandlers: IScript
     {
-        public void OnPlayerJoined(PlayerJoinFinalEvent ev)
+        [PlayerEvent(PlayerEventType.OnPlayerJoinFinal)]
+        public static void OnPlayerJoined(PlayerJoinFinalEvent ev)
         {
             Player ply = new Player(ev.player);
             Player.Dictionary.Add(ev.player, ply);
             Log.Info($"Player joined: {ply.Nickname}");
+            ply.SendChatMessage($"This server is using Census-{CensusCore.Instance.Version}");
         }
 
-        public void OnPlayerLeft(PlayerLeaveEvent ev)
+        [PlayerEvent(PlayerEventType.OnPlayerLeave)]
+        public static void OnPlayerLeft(PlayerLeaveEvent ev)
         {
             Player.Dictionary.Remove(ev.player);
         }

@@ -19,18 +19,29 @@
         }
 
         public IPlayer IPlayer { get; }
-        public Vector3 Position => IPlayer.PlayerController.Position;
+
+        public Vector3 Position
+        {
+            get => IPlayer.PlayerController.Position;
+            set
+            {
+                IPlayer.PlayerController.Position = value;
+            }
+        }
+
         public Quaternion BaseRotation => IPlayer.PlayerController.BaseRotation;
 
         public float HeadRotation => IPlayer.PlayerController.HeadRotation;
 
-        public string Nickname {
+        public string Nickname
+        {
             get => IPlayer.PlayerController.NetworkplayerName;
             set
             {
                 IPlayer.PlayerController.NetworkplayerName = value;
             }
         }
+
         public RoleType ClassId
         {
             get => (RoleType)PlayerStats.NetworkClassId;
@@ -67,6 +78,11 @@
         public static Player Get(IPlayer ply)
         {
             return Dictionary[ply];
+        }
+
+        public void SendChatMessage(string message)
+        {
+            IPlayer.SendPlayerChatMessage(message);
         }
     }
 }

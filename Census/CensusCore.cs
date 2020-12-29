@@ -19,28 +19,25 @@
 
         private static int __reloads = 0;
 
-        private EventHandlers evs;
+        public static CensusCore Instance { get; private set; }
 
         public override void OnDisable()
         {
-            base.OnDisable();
-
             Harmony.UnpatchAll();
 
             Harmony = null;
+
+            base.OnDisable();
         }
 
         public override void OnEnable()
         {
-            base.OnEnable();
+            Instance = this;
             Log.Info("Loading CensusCore...");
             Harmony = new HarmonyLib.Harmony("censuscore.instance."+__reloads);
             __reloads++;
             Harmony.PatchAll();
-
-            evs = new EventHandlers();
-
-           // PluginSystem.PlayerJoinFinalEvent. evs.OnPlayerJoined;
+            base.OnEnable();
         }
     }
 }

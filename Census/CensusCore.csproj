@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CensusCore.cs" />
+    <Compile Include="EventHandlers.cs" />
     <Compile Include="Harmony\Fixes\NRESpamFix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
