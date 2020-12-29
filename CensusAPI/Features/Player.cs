@@ -37,10 +37,10 @@
 
         public string Nickname
         {
-            get => IPlayer.PlayerController.NetworkplayerName;
+            get => PlayerStats.PlayerName;
             set
             {
-                IPlayer.PlayerController.NetworkplayerName = value;
+                PlayerStats.PlayerName = value;
             }
         }
 
@@ -111,6 +111,15 @@
             }
         }
 
+        public float StaminaReconveringMultiplier
+        {
+            get => PlayerStats.NetworkSprintRecoverMultiplier;
+            set
+            {
+                PlayerStats.NetworkSprintRecoverMultiplier = value;
+            }
+        }
+
         public float BlinkTimer
         {
             get => PlayerStats.NetworkblinkTimer;
@@ -152,8 +161,25 @@
             }
         }
 
-
         public Inventory Inventory => PlayerStats.inv;
+
+        public int CurAmmo
+        {
+            get => PlayerStats.NetworkcurWeaponAmmo;
+            set
+            {
+                PlayerStats.NetworkcurWeaponAmmo = value;
+            }
+        }
+
+        public int ReserveAmmo
+        {
+            get => PlayerStats.NetworkreserveAmmo;
+            set
+            {
+                PlayerStats.NetworkreserveAmmo = value;
+            }
+        }
 
         public int CurrentDimension
         {
@@ -163,6 +189,10 @@
                 PlayerStats.CurrentDimension = CurrentDimension;
             }
         }
+
+        public bool HasNightVision => PlayerStats.nightVision;
+        public bool HasBlueVision => PlayerStats.blueVision;
+        public bool HasInfraVision => PlayerStats.infraVision;
 
         public static Player Get(IPlayer ply)
         {

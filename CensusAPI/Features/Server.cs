@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CensusAPI.Features
+﻿namespace CensusAPI.Features
 {
-    class Server
+    using VirtualBrightPlayz.SCP_ET.Player;
+    using VirtualBrightPlayz.SCP_ET.Misc;
+    public class Server
     {
+        public static string Title{
+            get => PlayerList.List.Networktitle;
+            set
+            {
+                PlayerList.List.Networktitle = value;
+            }
+        }
+
+        public static int Gamemode
+        {
+            get => PlayerList.List.NetworkgameModeId;
+            set
+            {
+                PlayerList.List.NetworkgameModeId = value;
+            }
+        }
+
+        public static GameSettings.JsonServerSettings ServerSettings => GameSettings.serverSettings; 
+
     }
 }
