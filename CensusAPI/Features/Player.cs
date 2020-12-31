@@ -1,6 +1,7 @@
 ﻿namespace CensusAPI.Features
 {
     using Enums;
+    using Mirror;
     using PluginFramework.Classes;
     using System.Collections.Generic;
     using UnityEngine;
@@ -19,6 +20,8 @@
         }
 
         public IPlayer IPlayer { get; }
+
+        public INetworkConnection Connection => IPlayer.PlayerController.ConnectionToClient;
 
         public GameObject GameObject => PlayerStats.gameObject;
 
@@ -111,12 +114,57 @@
             }
         }
 
-        public float StaminaReconveringMultiplier
+        public float StaminaRecoveringMultiplier
         {
             get => PlayerStats.NetworkSprintRecoverMultiplier;
             set
             {
                 PlayerStats.NetworkSprintRecoverMultiplier = value;
+            }
+        }
+
+        public float SprintSpeed
+        {
+            get => IPlayer.PlayerController.NetworksprintSpeed;
+            set
+            {
+                IPlayer.PlayerController.NetworksprintSpeed = value;
+            }
+        }
+
+        public float WalkSpeed
+        {
+            get => IPlayer.PlayerController.NetworkwalkSpeed;
+            set
+            {
+                IPlayer.PlayerController.NetworkwalkSpeed = value;
+            }
+        }
+
+        public float Gravity
+        {
+            get => IPlayer.PlayerController.Networkgravity;
+            set
+            {
+                IPlayer.PlayerController.Networkgravity = value;
+            }
+        }
+
+        public float JumpHeight
+        {
+            get => IPlayer.PlayerController.NetworkjumpHeight;
+            set
+            {
+                IPlayer.PlayerController.NetworkjumpHeight = value;
+            }
+        }
+
+        public float CrouchSpeed
+        {
+            get => IPlayer.PlayerController.NetworkcrouchSpeed;
+            set
+            {
+                IPlayer.PlayerController.NetworkcrouchSpeed = value;
             }
         }
 
@@ -152,7 +200,7 @@
             get => PlayerStats.hasRing;
         }
 
-        public bool IsGodMode
+        public bool GodModeEnabled
         {
             get => IPlayer.PlayerController.Network_godMode;
             set
@@ -160,6 +208,53 @@
                 IPlayer.PlayerController.Network_godMode = value;
             }
         }
+
+        public bool NoclipEnabled
+        {
+            get => IPlayer.PlayerController.NetworkisFly;
+            set
+            {
+                IPlayer.PlayerController.NetworkisFly = value;
+            }
+        }
+
+        public bool NotargetEnabled
+        {
+            get => IPlayer.PlayerController.NetworknoTarget;
+            set
+            {
+                IPlayer.PlayerController.NetworknoTarget = value;
+            }
+        }
+
+        public bool ThirdpersonEnabled
+        {
+            get => IPlayer.PlayerController.NetworkthirdPerson;
+            set
+            {
+                IPlayer.PlayerController.NetworkthirdPerson = value;
+            }
+        }
+
+        public bool NoSeeEnabled
+        {
+            get => IPlayer.PlayerController.NetworknoSee;
+            set
+            {
+                IPlayer.PlayerController.NetworknoSee = value;
+            }
+        }
+
+        public string Group 
+        {
+            get => IPlayer.PlayerController.NetworkplayerGroup;
+            set
+            {
+                IPlayer.PlayerController.NetworkplayerGroup = value;
+            }
+        }
+
+        public float IsMakingSound => IPlayer.PlayerController.IsMakingSound;
 
         public Inventory Inventory => PlayerStats.inv;
 
@@ -222,7 +317,12 @@
 
         public static Player Get(IPlayer ply)
         {
-            return Dictionary[ply];
+            return Dictionary.ContainsKey(ply) ? Dictionary[ply] : null;
+        }
+
+        public static Player Get(PlayerController ply)
+        {
+            return Dictionary.ContainsKey(ply.stats) ? Dictionary[ply.stats] : null;
         }
 
         public void SendChatMessage(string message)
@@ -248,6 +348,31 @@
         public void Hurt(float damage, GameObject damager, PlayerStats.DeathTypes death = PlayerStats.DeathTypes.Unknown)
         {
             PlayerStats.TakeDamage(damage, damager, death);
+        }
+
+        public void ShowStatus(string status)
+        {
+            IPlayer.PlayerController.ShowStatus(status);
+        }
+
+        public void Blink()
+        {
+            IPlayer.PlayerController.CmdBlink();
+        }
+
+        public void UnBlink()
+        {
+            IPlayer.PlayerController.CmdUnBlink();
+        }
+
+        public void Disconnect(string message)
+        {
+            IPlayer.PlayerController.Disconnect(message);
+        }
+
+        public void DropAll()
+        {
+            IPlayer.PlayerController.DropAllInv();
         }
     }
 }

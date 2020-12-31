@@ -2,6 +2,7 @@
 {
     using CensusAPI.Features;
     using System.Collections.Generic;
+    using PluginFramework.Classes;
     using VirtualBrightPlayz.SCP_ET;
     using VirtualBrightPlayz.SCP_ET.Player;
 
@@ -22,12 +23,14 @@
 
         public void Invoke(PlayerController invoker, string[] args, out string response)
         {
-             foreach (Door d in Map.Doors)
+             foreach (VirtualBrightPlayz.SCP_ET.Door d in Map.Doors)
              {
                  d.NetworkisLocked = false;
                  d.Networkopen = true;
              }
-            response = "Opened all doors!";
+            Player pl = Player.Get(invoker);
+            pl.ShowStatus("Command executed!");
+            response = "Command executed!";
         }
     }
 }
