@@ -13,6 +13,7 @@
             Player.Dictionary.Add(ev.player, ply);
             Log.Info($"Player joined: {ply.Nickname}");
             ply.SendChatMessage($"This server is using Census-{CensusCore.Instance.Version}");
+           
         }
 
         [PlayerEvent(PlayerEventType.OnPlayerLeave)]

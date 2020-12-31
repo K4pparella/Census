@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Features\Log.cs" />
+    <Compile Include="Features\Map.cs" />
     <Compile Include="Features\Plugin.cs" />
     <Compile Include="Features\Player.cs" />
     <Compile Include="Features\Role.cs" />

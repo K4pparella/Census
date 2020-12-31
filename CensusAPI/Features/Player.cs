@@ -163,6 +163,32 @@
 
         public Inventory Inventory => PlayerStats.inv;
 
+        public ItemBase CurrentItem => Inventory.current;
+        public ItemBase CurrentWorn => Inventory.currentWorn;
+
+        public int CurrentItemIndex
+        {
+            get => Inventory.NetworkCurItem;
+            set
+            {
+                Inventory.NetworkCurItem = value;
+            }
+        }
+
+        public int CurrentWornItemIndex
+        {
+            get => Inventory.NetworkCurWornItem;
+            set
+            {
+                Inventory.NetworkCurWornItem = value;
+            }
+        }
+
+        public void RemoveItem(int index)
+        {
+            Inventory.RemoveItem(index);
+        }
+
         public int CurAmmo
         {
             get => PlayerStats.NetworkcurWeaponAmmo;
