@@ -71,7 +71,10 @@
     <Compile Include="Harmony\Fixes\NRESpamFix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Events\EventArgs\" />
+    <Folder Include="Harmony\Events\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CensusAPI\CensusAPI.csproj">
       <Project>{6801e9f5-f074-4538-8bb9-dbc2c3e79726}</Project>

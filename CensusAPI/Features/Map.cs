@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET;
     using VirtualBrightPlayz.SCP_ET.Items;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
@@ -10,7 +11,10 @@
     public class Map
     {
         private static readonly List<Door> DoorsValue = new List<Door>();
-        public static ReadOnlyCollection<Door> RODoors = DoorsValue.AsReadOnly();
+        private static ReadOnlyCollection<Door> RODoors = DoorsValue.AsReadOnly();
+
+        private static readonly List<TeslaGate> TeslasValue = new List<TeslaGate>();
+        private static ReadOnlyCollection<TeslaGate> ROTeslas = TeslasValue.AsReadOnly();
 
         public static List<WorldItemBase> Items => ItemDB.DataBase.WorldItems;
 
@@ -22,6 +26,31 @@
                     DoorsValue.AddRange(Object.FindObjectsOfType<Door>());
 
                 return RODoors;
+            }
+        }
+
+        public static ReadOnlyCollection<TeslaGate> Teslas
+        {
+            get
+            {
+                if (TeslasValue.Count == 0)
+                    TeslasValue.AddRange(Object.FindObjectsOfType<TeslaGate>());
+
+                return ROTeslas;
+            }
+        }
+
+        public static void SetLCZLockdownState(string val, bool sound = false)
+        {
+            LCZMissionControl.control.RpcUpdateLockdownState(val, sound);
+        }
+
+        public static bool IsLCZCheckpointLocked
+        {
+            get => !LCZMissionControl.control.checkpointsUnlocked;
+            set
+            {
+                LCZMissionControl.control.checkpointsUnlocked = !value;
             }
         }
     }

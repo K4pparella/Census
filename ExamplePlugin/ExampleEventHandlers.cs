@@ -13,6 +13,7 @@
         {
             Player player = Player.Get(ev.player);
             player.SendChatMessage($"Hello, {player.Nickname}!");
+            player.AddMission("Enjoy the game!");
         }
     }
 }

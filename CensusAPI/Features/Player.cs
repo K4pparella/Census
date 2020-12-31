@@ -8,6 +8,7 @@
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
     using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.Player.Classes;
+    using VirtualBrightPlayz.SCP_ET.ServerGroups;
 
     public class Player
     {
@@ -245,7 +246,7 @@
             }
         }
 
-        public string Group 
+        public string Group
         {
             get => IPlayer.PlayerController.NetworkplayerGroup;
             set
@@ -315,6 +316,25 @@
         public bool HasBlueVision => PlayerStats.blueVision;
         public bool HasInfraVision => PlayerStats.infraVision;
 
+        public PlayerMissionManager MissionManager
+        {
+            get => PlayerStats.playerMissionManager;
+        }
+
+        public int AddMission(string name, bool completed = false)
+        {
+            MissionManager.AddMissionServer(new MissionInfo()
+            {
+                MissionName = name,
+            }, completed);
+            return MissionManager.GetIndex(name);
+        }
+
+        public void RemoveMission(int index)
+        {
+            MissionManager.RemoveMissionServer(index);
+        }
+
         public static Player Get(IPlayer ply)
         {
             return Dictionary.ContainsKey(ply) ? Dictionary[ply] : null;
@@ -373,6 +393,11 @@
         public void DropAll()
         {
             IPlayer.PlayerController.DropAllInv();
+        }
+
+        public bool CheckPermission(string perm)
+        {
+            return ServerGroups.CheckPermission(IPlayer.PlayerController.ConnectionToClient, perm);
         }
     }
 }
