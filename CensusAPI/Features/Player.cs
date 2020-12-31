@@ -340,7 +340,7 @@
             get => PlayerStats.playerMissionManager;
         }
 
-        public bool IsMuted 
+        public bool IsMuted
         {
             get => IPlayer.PlayerController.voiceChatScript.NetworkisServerMuted;
             set

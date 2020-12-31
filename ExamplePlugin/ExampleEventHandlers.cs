@@ -1,6 +1,5 @@
 ﻿namespace ExamplePlugin
 {
-    using Mirror;
     using CensusAPI.Features;
     using PluginFramework.Attributes;
     using PluginFramework.Classes;

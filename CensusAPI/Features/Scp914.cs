@@ -1,18 +1,18 @@
 ﻿namespace CensusAPI.Features
 {
+    using Enums;
     using System.Collections.Generic;
     using VirtualBrightPlayz.SCP_ET.World;
-
-    using Enums;
 
     public class Scp914
     {
         private static SCP914 __instance;
+
         public static SCP914 Instance
         {
             get
             {
-                if(__instance == null)
+                if (__instance == null)
                 {
                     __instance = UnityEngine.Object.FindObjectOfType<SCP914>();
                 }

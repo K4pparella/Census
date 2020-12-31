@@ -1,10 +1,10 @@
 ﻿namespace CensusAPI.Features
 {
     using Assets.MirrorEXT;
+    using PluginFramework.Events;
     using VirtualBrightPlayz.SCP_ET;
     using VirtualBrightPlayz.SCP_ET.Misc;
     using VirtualBrightPlayz.SCP_ET.Player;
-    using PluginFramework.Events;
 
     public class Server
     {
