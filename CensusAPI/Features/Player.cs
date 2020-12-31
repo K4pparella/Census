@@ -3,6 +3,7 @@
     using Enums;
     using Mirror;
     using PluginFramework.Classes;
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
@@ -246,6 +247,15 @@
             }
         }
 
+        public bool InfiniteAmmoEnabled
+        {
+            get => IPlayer.PlayerController.infAmmo;
+            set
+            {
+                IPlayer.PlayerController.infAmmo = value;
+            }
+        }
+
         public string Group
         {
             get => IPlayer.PlayerController.NetworkplayerGroup;
@@ -316,9 +326,27 @@
         public bool HasBlueVision => PlayerStats.blueVision;
         public bool HasInfraVision => PlayerStats.infraVision;
 
+        public string Skin
+        {
+            get => PlayerStats.NetworkplayerTextureIndex;
+            set
+            {
+                PlayerStats.NetworkplayerTextureIndex = value;
+            }
+        }
+
         public PlayerMissionManager MissionManager
         {
             get => PlayerStats.playerMissionManager;
+        }
+
+        public bool IsMuted 
+        {
+            get => IPlayer.PlayerController.voiceChatScript.NetworkisServerMuted;
+            set
+            {
+                IPlayer.PlayerController.voiceChatScript.NetworkisServerMuted = true;
+            }
         }
 
         public int AddMission(string name, bool completed = false)
@@ -388,6 +416,49 @@
         public void Disconnect(string message)
         {
             IPlayer.PlayerController.Disconnect(message);
+        }
+
+        public void Ban(string reason, TimeSpan duration)
+        {
+            BanHandler.singleton.Addban(IPlayer.PlayerController.ConnectionToClient, "", duration);
+            Disconnect($"You have been banned from this server: {reason}");
+        }
+
+        public void Mute(string reason, TimeSpan duration)
+        {
+            IsMuted = true;
+            MuteHandler.singleton.AddMute(IPlayer.PlayerController.ConnectionToClient, reason, duration);
+            if (duration == TimeSpan.MaxValue)
+            {
+                SendChatMessage($"<color=red>You have been server muted: {reason}</color>");
+            }
+            else
+            {
+                SendChatMessage(string.Format("<color=red>You have been server muted\nDuration: {0} Days {1} Hours {2} Minutes\nReason: {3}</color>", new object[]
+                {
+                    duration.Days,
+                    duration.TotalHours,
+                    duration.TotalMinutes,
+                    string.Join(" ", reason)
+                }));
+            }
+        }
+
+        public void Unmute()
+        {
+            if (MuteHandler.singleton.GetMute(IPlayer.PlayerController.ConnectionToClient) != null)
+            {
+                IsMuted = false;
+                if (IPlayer.PlayerController.ConnectionToClient.AuthenticationData == null)
+                {
+                    MuteHandler.singleton.RemoveMute("", IPlayer.PlayerController.ConnectionToClient.Address.ToString());
+                }
+                else
+                {
+                    MuteHandler.singleton.RemoveMute(IPlayer.PlayerController.ConnectionToClient.AuthenticationData.ToString(), IPlayer.PlayerController.ConnectionToClient.Address.ToString());
+                }
+                SendChatMessage("<color=red>You have been server unmuted</color>");
+            }
         }
 
         public void DropAll()

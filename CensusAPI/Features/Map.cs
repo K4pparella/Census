@@ -1,12 +1,16 @@
 ﻿namespace CensusAPI.Features
 {
+    using UnityEngine;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET;
+    using VirtualBrightPlayz.SCP_ET.Database;
+    using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET.Items;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
     using Object = UnityEngine.Object;
+
+    using Enums;
 
     public class Map
     {
@@ -52,6 +56,11 @@
             {
                 LCZMissionControl.control.checkpointsUnlocked = !value;
             }
+        }
+
+        public static void SpawnItem(ItemType item, Vector3 position, Quaternion rotation)
+        {
+            DatabaseManager.Spawn(Object.Instantiate(ItemDB.DataBase.PrefabDB[(int)item], position, rotation));
         }
     }
 }

@@ -56,12 +56,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\RoleType.cs" />
+    <Compile Include="Enums\Scp914Mode.cs" />
     <Compile Include="Features\Log.cs" />
     <Compile Include="Features\Map.cs" />
     <Compile Include="Features\Plugin.cs" />
     <Compile Include="Features\Player.cs" />
     <Compile Include="Features\Role.cs" />
+    <Compile Include="Features\Scp914.cs" />
     <Compile Include="Features\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
