@@ -19,12 +19,12 @@
 
         public override void OnEnable()
         {
-            Log.Info($"Plugin {Name}-{Version} (by {Author}) loaded!");
+            Log.Info($"Loading plugin {Name}-{Version} (by {Author})");
         }
 
         public override void OnDisable()
         {
-            Log.Info($"Plugin {Name}-{Version} (by {Author}) unloaded!");
+            Log.Info($"Unloading plugin {Name}-{Version} (by {Author})");
         }
     }
 }

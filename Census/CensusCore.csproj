@@ -68,12 +68,18 @@
   <ItemGroup>
     <Compile Include="CensusCore.cs" />
     <Compile Include="CensusEventHandlers.cs" />
-    <Compile Include="Harmony\Fixes\NRESpamFix.cs" />
+    <Compile Include="Events\Attributes\CensusWorldEvent.cs" />
+    <Compile Include="Events\Attributes\CensusWorldEventType.cs" />
+    <Compile Include="Events\CensusWorldEvents.cs" />
+    <Compile Include="Events\EventArgs\InteractingDoorButtonEventArgs.cs" />
+    <Compile Include="Events\EventArgs\InteractingPizzaEventArgs.cs" />
+    <Compile Include="Harmony\Events\InteractingDoorButtonPatch.cs" />
+    <Compile Include="Harmony\Events\InteractingPizzaPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Events\EventArgs\" />
-    <Folder Include="Harmony\Events\" />
+    <Folder Include="Harmony\Features\" />
+    <Folder Include="Harmony\Fixes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CensusAPI\CensusAPI.csproj">

@@ -9,6 +9,7 @@
     using VirtualBrightPlayz.SCP_ET.Items;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
     using VirtualBrightPlayz.SCP_ET.World;
+    using VirtualBrightPlayz.SCP_ET.World.FemurBreaker;
     using Object = UnityEngine.Object;
 
     public class Map
@@ -18,6 +19,8 @@
 
         private static readonly List<TeslaGate> TeslasValue = new List<TeslaGate>();
         private static ReadOnlyCollection<TeslaGate> ROTeslas = TeslasValue.AsReadOnly();
+
+        private static FemurBreakerButton femur;
 
         public static List<WorldItemBase> Items => ItemDB.DataBase.WorldItems;
 
@@ -61,5 +64,30 @@
         {
             DatabaseManager.Spawn(Object.Instantiate(ItemDB.DataBase.PrefabDB[(int)item], position, rotation));
         }
+
+        public static FemurBreakerButton FemurBreakerButton
+        {
+            get
+            {
+                if (femur == null)
+                {
+                    femur = Object.FindObjectOfType<FemurBreakerButton>();
+                }
+                return femur;
+            }
+        }
+
+        public static FemurBreakerControl FemurBreaker => FemurBreakerButton.control;
+
+        public static Scp106RecontainmentStatus Scp106RecontainmentStatus
+        {
+            get => FemurBreaker.NetworkrecontainmentStatus;
+            set
+            {
+                FemurBreaker.NetworkrecontainmentStatus = value;
+            }
+        }
+
+        public static bool IsScp106Recontained => FemurBreaker.recontained;
     }
 }

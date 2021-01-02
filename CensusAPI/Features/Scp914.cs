@@ -20,12 +20,12 @@
             }
         }
 
-        public static Scp914Mode Mode
+        public static Scp914Setting Mode
         {
-            get => (Scp914Mode)Instance.NetworkcurMode;
+            get => Instance.NetworkcurMode;
             set
             {
-                Instance.NetworkcurMode = (int)value;
+                Instance.NetworkcurMode = value;
             }
         }
 

@@ -19,6 +19,7 @@ namespace ExamplePlugin
         public override void OnEnable()
         {
             base.OnEnable();
+            CensusCore.CensusCore.InjectEvents();
         }
     }
 }

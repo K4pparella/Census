@@ -21,6 +21,11 @@
             IPlayer = inst;
         }
 
+        public Player(PlayerController inst)
+        {
+            IPlayer = inst.stats;
+        }
+
         public IPlayer IPlayer { get; }
 
         public INetworkConnection Connection => IPlayer.PlayerController.ConnectionToClient;
@@ -365,12 +370,20 @@
 
         public static Player Get(IPlayer ply)
         {
+            if (ply == null)
+            {
+                return null;
+            }
             return Dictionary.ContainsKey(ply) ? Dictionary[ply] : null;
         }
 
         public static Player Get(PlayerController ply)
         {
-            return Dictionary.ContainsKey(ply.stats) ? Dictionary[ply.stats] : null;
+            if(ply == null)
+            {
+                return null;
+            }
+            return Get(ply.stats);
         }
 
         public void SendChatMessage(string message)
