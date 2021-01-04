@@ -1,10 +1,10 @@
 ﻿namespace CensusCore.Events
 {
     using CensusAPI.Features;
-    using EventArgs;
+    using EventArgs.World;
     using System;
     using VirtualBrightPlayz.SCP_ET;
-
+    using VirtualBrightPlayz.SCP_ET.Player;
     public class CensusWorldEvents
     {
         public CensusWorldEvents()
@@ -18,10 +18,6 @@
 
         public delegate void InteractingDoorButton(InteractingDoorButtonEventArgs ev);
 
-        public static event InteractingPizza InteractingPizzaEvent;
-
-        public delegate void InteractingPizza(InteractingPizzaEventArgs ev);
-
         public void ExecuteInteractingDoorButton(InteractingDoorButtonEventArgs ev)
         {
             try
@@ -34,28 +30,10 @@
             }
         }
 
-        public static void InvokeInteractingDoorButton(Player player, Door[] doors)
+        public static void InvokeInteractingDoorButton(PlayerController player, Door[] doors)
         {
             InteractingDoorButtonEventArgs ev = new InteractingDoorButtonEventArgs(player, doors);
             Instance.ExecuteInteractingDoorButton(ev);
-        }
-
-        public void ExecuteInteractingPizza(InteractingPizzaEventArgs ev)
-        {
-            try
-            {
-                InteractingPizzaEvent?.Invoke(ev);
-            }
-            catch (Exception e)
-            {
-                Log.Error($"Exception while handling InteractingPizzaEvent: {e}");
-            }
-        }
-
-        public static void InvokeInteractingPizza(Player player)
-        {
-            InteractingPizzaEventArgs ev = new InteractingPizzaEventArgs(player);
-            Instance.ExecuteInteractingPizza(ev);
         }
     }
 }

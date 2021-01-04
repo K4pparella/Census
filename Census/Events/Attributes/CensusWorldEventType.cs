@@ -3,6 +3,5 @@
     public enum CensusWorldEventType
     {
         InteractingDoorButton,
-        InteractingPizza
     }
 }

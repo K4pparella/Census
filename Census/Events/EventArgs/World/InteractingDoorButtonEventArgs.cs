@@ -1,14 +1,14 @@
-﻿namespace CensusCore.Events.EventArgs
+﻿namespace CensusCore.Events.EventArgs.World
 {
     using System;
     using CensusAPI.Features;
     using VirtualBrightPlayz.SCP_ET;
-
+    using VirtualBrightPlayz.SCP_ET.Player;
     public class InteractingDoorButtonEventArgs: EventArgs
     {
-        public InteractingDoorButtonEventArgs(Player p, Door[] doors)
+        public InteractingDoorButtonEventArgs(PlayerController p, Door[] doors)
         {
-            Player = p;
+            Player = Player.Get(p);
             Doors = doors;
             IsAllowed = true;
         }
