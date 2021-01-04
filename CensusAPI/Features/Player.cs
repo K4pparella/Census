@@ -10,6 +10,7 @@
     using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.Player.Classes;
     using VirtualBrightPlayz.SCP_ET.ServerGroups;
+    using VirtualBrightPlayz.SCP_ET.Player.Effects;
 
     public class Player
     {
@@ -353,6 +354,32 @@
                 IPlayer.PlayerController.voiceChatScript.NetworkisServerMuted = true;
             }
         }
+        public bool IsSprinting
+        {
+            get => IPlayer.PlayerController.movementController.NetworksyncIsSprinting;
+            set
+            {
+                IPlayer.PlayerController.movementController.NetworksyncIsSprinting = value;
+            }
+        }
+
+        public bool IsJumping
+        {
+            get => IPlayer.PlayerController.movementController.NetworksyncIsJump;
+            set
+            {
+                IPlayer.PlayerController.movementController.NetworksyncIsJump = value;
+            }
+        }
+
+        public bool IsDucking
+        {
+            get => IPlayer.PlayerController.movementController.NetworksyncIsDucking;
+            set
+            {
+                IPlayer.PlayerController.movementController.NetworksyncIsDucking = value;
+            }
+        }
 
         public int AddMission(string name, bool completed = false)
         {
@@ -482,6 +509,26 @@
         public bool CheckPermission(string perm)
         {
             return ServerGroups.CheckPermission(IPlayer.PlayerController.ConnectionToClient, perm);
+        }
+
+        public void AddEffect(IEffect effect)
+        {
+            PlayerStats.effectsHP.AddEffect(effect);
+        }
+
+        public bool HasEffect(string effect)
+        {
+            return PlayerStats.effectsHP.HasEffect(effect);
+        }
+
+        public void RemoveEffect(string effect)
+        {
+            PlayerStats.effectsHP.RemoveEffect(effect);
+        }
+
+        public void RemoveAllEffects()
+        {
+            PlayerStats.effectsHP.RemoveAllEffects();
         }
     }
 }

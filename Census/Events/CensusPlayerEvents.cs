@@ -60,7 +60,7 @@
             }
             catch (Exception e)
             {
-                Log.Error($"Exception while handling InteractingDoorButtonEvent: {e}");
+                Log.Error($"Exception while handling DiedEvent: {e}");
             }
         }
 
@@ -68,6 +68,22 @@
         {
             DiedEventArgs ev = new DiedEventArgs(player, death, killer == null ? null : killer.GetComponent<IEntity>());
             Instance.ExecuteDied(ev);
+        }
+
+        public static event PickingUpItem PickingUpItemEvent;
+
+        public delegate void PickingUpItem(PickingUpItemEventArgs ev);
+
+        public void ExecutePickingUpItem(PickingUpItemEventArgs ev)
+        {
+            try
+            {
+                PickingUpItemEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling PickingUpItemEvent: {e}");
+            }
         }
     }
 }

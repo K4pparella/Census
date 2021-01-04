@@ -32,12 +32,12 @@
             }
         }
 
-        [CensusPlayerEvent(CensusPlayerEventType.Dying)]
-        public static void OnDying(DyingEventArgs ev)
+        [CensusPlayerEvent(CensusPlayerEventType.PickingUpItem)]
+        public static void OnPickup(PickingUpItemEventArgs ev)
         {
             try
             {
-                ev.Player.SendChatMessage("Ouch!");
+                ev.Player.SendChatMessage("You cant.");
                 ev.IsAllowed = false;
             }
             catch (Exception)

@@ -4,6 +4,7 @@
     {
         Hurt,
         Dying,
-        Died
+        Died,
+        PickingUpItem,
     }
 }

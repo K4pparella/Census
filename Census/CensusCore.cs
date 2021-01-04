@@ -22,6 +22,7 @@
         public static CensusCore Instance { get; private set; }
         public static CensusWorldEvents WorldEvents { get; private set; }
         public static CensusPlayerEvents PlayerEvents { get; private set; }
+
         public override void OnDisable()
         {
             base.OnDisable();
@@ -58,30 +59,18 @@
                         {
                             Log.Info($"Injected CENSUS event: {attrib.EventType:g}");
                             EventInfo @event;
-                            switch (attrib.EventType)
-                            {
-                                case CensusWorldEventType.InteractingDoorButton:
-                                    @event = CensusWorldEvents.Instance.GetType().GetEvent("InteractingDoorButtonEvent");
-                                    @event.AddEventHandler(null, Delegate.CreateDelegate(@event.EventHandlerType, methodInfo));
-                                    break;
-                            }
+                            string name = attrib.EventType.ToString("g");
+                            @event = CensusWorldEvents.Instance.GetType().GetEvent(name + "Event");
+                            @event.AddEventHandler(null, Delegate.CreateDelegate(@event.EventHandlerType, methodInfo));
                         }
                         CensusPlayerEvent attrib1 = methodInfo.GetCustomAttribute<CensusPlayerEvent>();
-                        if(attrib1 != null)
+                        if (attrib1 != null)
                         {
                             Log.Info($"Injected CENSUS event: {attrib1.EventType:g}");
                             EventInfo @event;
-                            switch (attrib1.EventType)
-                            {
-                                case CensusPlayerEventType.Hurt:
-                                    @event = CensusPlayerEvents.Instance.GetType().GetEvent("HurtEvent");
-                                    @event.AddEventHandler(null, Delegate.CreateDelegate(@event.EventHandlerType, methodInfo));
-                                    break;
-                                case CensusPlayerEventType.Dying:
-                                    @event = CensusPlayerEvents.Instance.GetType().GetEvent("DyingEvent");
-                                    @event.AddEventHandler(null, Delegate.CreateDelegate(@event.EventHandlerType, methodInfo));
-                                    break;
-                            }
+                            string name = attrib1.EventType.ToString("g");
+                            @event = CensusPlayerEvents.Instance.GetType().GetEvent(name + "Event");
+                            @event.AddEventHandler(null, Delegate.CreateDelegate(@event.EventHandlerType, methodInfo));
                         }
                     }
                 }
