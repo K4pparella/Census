@@ -85,5 +85,38 @@
                 Log.Error($"Exception while handling PickingUpItemEvent: {e}");
             }
         }
+
+
+        public static event CraftingItem CraftingItemEvent;
+
+        public delegate void CraftingItem(CraftingItemEventArgs ev);
+
+        public void ExecuteCraftingItem(CraftingItemEventArgs ev)
+        {
+            try
+            {
+                CraftingItemEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling CraftingItemEvent: {e}");
+            }
+        }
+
+        public static event UsingFemurBreaker UsingFemurBreakerEvent;
+
+        public delegate void UsingFemurBreaker(UsingFemurBreakerEventArgs ev);
+
+        public void ExecuteUsingFemurBreaker(UsingFemurBreakerEventArgs ev)
+        {
+            try
+            {
+                UsingFemurBreakerEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling UsingFemurBreakerEvent: {e}");
+            }
+        }
     }
 }

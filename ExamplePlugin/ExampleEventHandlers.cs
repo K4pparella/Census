@@ -1,6 +1,7 @@
 ﻿namespace ExamplePlugin
 {
     using CensusAPI.Features;
+    using CensusAPI.Enums;
     using CensusCore.Events.EventArgs.Player;
     using CensusCore.Events.EventArgs.World;
     using CensusCore.Events.Attributes;
@@ -8,6 +9,7 @@
     using PluginFramework.Classes;
     using PluginFramework.Events.EventsArgs;
     using System;
+    using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
 
     public class ExampleEventHandlers : IScript
     {
@@ -32,13 +34,17 @@
             }
         }
 
-        [CensusPlayerEvent(CensusPlayerEventType.PickingUpItem)]
-        public static void OnPickup(PickingUpItemEventArgs ev)
+        [CensusPlayerEvent(CensusPlayerEventType.CraftingItem)]
+        public static void OnPickup(CraftingItemEventArgs ev)
         {
             try
             {
-                ev.Player.SendChatMessage("You cant.");
-                ev.IsAllowed = false;
+                ev.Player.SendChatMessage($"{ev.Item1.ItemId} - {ItemType.Flashlight:g}");
+                ev.Player.SendChatMessage($"{ev.Item2.ItemId} - {ItemType.Radio:g}");
+                if (ev.Item1.ItemId == ItemType.Flashlight.ToString("g") && ev.Item2.ItemId == ItemType.Radio.ToString("g"))
+                {
+                    ev.Result = new ItemBattery();
+                }
             }
             catch (Exception)
             {

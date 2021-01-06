@@ -6,5 +6,7 @@
         Dying,
         Died,
         PickingUpItem,
+        CraftingItem,
+        UsingFemurBreaker
     }
 }

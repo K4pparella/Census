@@ -74,14 +74,18 @@
     <Compile Include="Events\Attributes\CensusWorldEventType.cs" />
     <Compile Include="Events\CensusPlayerEvents.cs" />
     <Compile Include="Events\CensusWorldEvents.cs" />
+    <Compile Include="Events\EventArgs\Player\CraftingItemEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\DiedEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\DyingEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\HurtEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\PickingUpItemEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\UsingFemurBreakerEventArgs.cs" />
     <Compile Include="Events\EventArgs\World\InteractingDoorButtonEventArgs.cs" />
+    <Compile Include="Harmony\Events\Player\CraftingItemPatch.cs" />
     <Compile Include="Harmony\Events\Player\DeathPatch.cs" />
     <Compile Include="Harmony\Events\Player\HurtPatch.cs" />
     <Compile Include="Harmony\Events\Player\PickingUpItemPatch.cs" />
+    <Compile Include="Harmony\Events\Player\UsingFemurBreakerPatch.cs" />
     <Compile Include="Harmony\Events\World\InteractingDoorButtonPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
