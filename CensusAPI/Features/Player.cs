@@ -6,11 +6,12 @@
     using System;
     using System.Collections.Generic;
     using UnityEngine;
+    using VirtualBrightPlayz.SCP_ET;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
     using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.Player.Classes;
-    using VirtualBrightPlayz.SCP_ET.ServerGroups;
     using VirtualBrightPlayz.SCP_ET.Player.Effects;
+    using VirtualBrightPlayz.SCP_ET.ServerGroups;
 
     public class Player
     {
@@ -354,6 +355,7 @@
                 IPlayer.PlayerController.voiceChatScript.NetworkisServerMuted = true;
             }
         }
+
         public bool IsSprinting
         {
             get => IPlayer.PlayerController.movementController.NetworksyncIsSprinting;
@@ -406,7 +408,7 @@
 
         public static Player Get(PlayerController ply)
         {
-            if(ply == null)
+            if (ply == null)
             {
                 return null;
             }
@@ -529,6 +531,25 @@
         public void RemoveAllEffects()
         {
             PlayerStats.effectsHP.RemoveAllEffects();
+        }
+
+        public void ExecuteChatCommand(string command)
+        {
+            string[] array = command.Split(new char[]
+            {
+                ' '
+            });
+            if (TextChat.commands.ContainsKey(array[0].ToLower()))
+            {
+                string text;
+                TextChat.commands[array[0].ToLower()].Invoke(IPlayer.PlayerController, array, out text);
+                SendChatMessage(text);
+            }
+        }
+
+        public void ExecuteAdminCommand(string command)
+        {
+            IPlayer.PlayerController.adminmenuScript.CmdAdminCommand(command);
         }
     }
 }

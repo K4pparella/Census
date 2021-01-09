@@ -8,6 +8,8 @@
     using VirtualBrightPlayz.SCP_ET.Database;
     using VirtualBrightPlayz.SCP_ET.Items;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
+    using VirtualBrightPlayz.SCP_ET.NPCs;
+    using VirtualBrightPlayz.SCP_ET.ServerConsole;
     using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET.World.FemurBreaker;
     using Object = UnityEngine.Object;
@@ -89,5 +91,20 @@
         }
 
         public static bool IsScp106Recontained => FemurBreaker.recontained;
+
+        public void GlobalChatMessage(string text)
+        {
+            TcpConsole.chatqueue.Enqueue(text);
+        }
+
+        public void SpawnNPC(string id, Vector3 position)
+        {
+            if (NPCDataBase.db.PrefabDB.ContainsKey(id))
+            {
+                GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(NPCDataBase.db.PrefabDB[id], position, Quaternion.identity);
+                gameObject.transform.position = position;
+                DatabaseManager.Spawn(gameObject);
+            }
+        }
     }
 }
