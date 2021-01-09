@@ -34,7 +34,7 @@
                 DamageType = ev.DamageType;
                 return true;
             }catch(Exception e)
-            {
+            { 
                 Log.Error($"Exception in HurtPatch: {e}");
                 return true;
             }
