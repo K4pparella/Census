@@ -29,11 +29,5 @@
                 Log.Error($"Exception while handling InteractingDoorButtonEvent: {e}");
             }
         }
-
-        public static void InvokeInteractingDoorButton(PlayerController player, Door[] doors)
-        {
-            InteractingDoorButtonEventArgs ev = new InteractingDoorButtonEventArgs(player, doors);
-            Instance.ExecuteInteractingDoorButton(ev);
-        }
     }
 }

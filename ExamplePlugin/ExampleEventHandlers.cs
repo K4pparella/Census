@@ -39,11 +39,11 @@
         {
             try
             {
-                ev.Player.SendChatMessage($"{ev.Item1.ItemId} - {ItemType.Flashlight:g}");
-                ev.Player.SendChatMessage($"{ev.Item2.ItemId} - {ItemType.Radio:g}");
                 if (ev.Item1.ItemId == ItemType.Flashlight.ToString("g") && ev.Item2.ItemId == ItemType.Radio.ToString("g"))
                 {
-                    ev.Result = new ItemBattery();
+                    ev.Result = new ItemBattery{
+                        inv = ev.Player.Inventory
+                    };
                 }
             }
             catch (Exception)

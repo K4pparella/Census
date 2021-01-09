@@ -32,10 +32,10 @@
                         return false;
                     }
 
-                    if (result != null)
+                    if (ev.Result != null)
                     {
-                        __instance.Items[index1] = result;
-                        __instance.RemoveItem(index2);
+                        __instance.Items[index1] = ev.Result;
+                        __instance.RemoveItem(__instance.Items.IndexOf(item2));
                         __instance.RpcSetInventory(__instance.CurItem, __instance.CurWornItem);
                     }
                     return false;

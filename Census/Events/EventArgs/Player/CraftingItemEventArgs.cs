@@ -16,8 +16,8 @@
         }
 
         public Player Player { get; }
-        public ItemBase Item1 { get; set; }
-        public ItemBase Item2 { get; set; }
+        public ItemBase Item1 { get; }
+        public ItemBase Item2 { get; }
         public ItemBase Result { get; set; }
         public bool IsAllowed { get; set; }
     }
