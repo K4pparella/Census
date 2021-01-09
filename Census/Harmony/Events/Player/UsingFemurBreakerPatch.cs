@@ -2,10 +2,11 @@
 {
     using global::CensusCore.Events;
     using global::CensusCore.Events.EventArgs.Player;
+    using HarmonyLib;
     using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET.World.FemurBreaker;
-    using HarmonyLib;
+
     [HarmonyPatch(typeof(FemurBreakerButton), nameof(FemurBreakerButton.StartUseOnce))]
     public class UsingFemurBreakerPatch
     {

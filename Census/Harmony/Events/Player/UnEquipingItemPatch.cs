@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CensusCore.Harmony.Events.Player
+﻿namespace CensusCore.Harmony.Events.Player
 {
     //Inventory.UserCode_CmdUnEquipItem
-    class UnEquipingItemPatch
+    internal class UnEquipingItemPatch
     {
     }
 }

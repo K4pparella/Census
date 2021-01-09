@@ -1,13 +1,13 @@
 ﻿namespace CensusCore.Harmony.Events.Player
 {
-    using System;
     using CensusAPI.Features;
     using global::CensusCore.Events;
     using global::CensusCore.Events.EventArgs.Player;
     using HarmonyLib;
+    using System;
     using UnityEngine;
-    using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.NPCs.Interfaces;
+    using VirtualBrightPlayz.SCP_ET.Player;
 
     [HarmonyPatch(typeof(PlayerHealthController), nameof(PlayerHealthController.PlrDamage))]
     public class HurtPatch
@@ -33,8 +33,9 @@
                 damage = ev.Amount;
                 DamageType = ev.DamageType;
                 return true;
-            }catch(Exception e)
-            { 
+            }
+            catch (Exception e)
+            {
                 Log.Error($"Exception in HurtPatch: {e}");
                 return true;
             }

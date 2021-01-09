@@ -1,8 +1,9 @@
 ﻿namespace CensusCore.Events.EventArgs.Player
 {
     using CensusAPI.Features;
-    using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.NPCs.Interfaces;
+    using VirtualBrightPlayz.SCP_ET.Player;
+
     public class HurtEventArgs
     {
         public HurtEventArgs(PlayerController ctrl, float amount, IEntity ent, PlayerStats.DeathTypes dt)

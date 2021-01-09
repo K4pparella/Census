@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CensusCore.Harmony.Events.Player
+﻿namespace CensusCore.Harmony.Events.Player
 {
     //KeycardButton.StartUseOnce
-    class InteractingKeycardReader
+    internal class InteractingKeycardReader
     {
     }
 }

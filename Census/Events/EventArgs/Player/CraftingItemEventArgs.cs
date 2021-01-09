@@ -1,9 +1,9 @@
 ﻿namespace CensusCore.Events.EventArgs.Player
 {
     using CensusAPI.Features;
-    using UnityEngine;
     using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
     using VirtualBrightPlayz.SCP_ET.Player;
+
     public class CraftingItemEventArgs
     {
         public CraftingItemEventArgs(PlayerController ctrl, ItemBase item1, ItemBase item2, ItemBase result)

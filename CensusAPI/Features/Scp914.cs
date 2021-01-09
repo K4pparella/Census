@@ -1,6 +1,5 @@
 ﻿namespace CensusAPI.Features
 {
-    using Enums;
     using System.Collections.Generic;
     using VirtualBrightPlayz.SCP_ET.World;
 

@@ -1,9 +1,9 @@
 ﻿namespace ExamplePlugin
 {
-    using CensusAPI.Features;
     using CensusAPI.Enums;
-    using CensusCore.Events.EventArgs.Player;
+    using CensusAPI.Features;
     using CensusCore.Events.Attributes;
+    using CensusCore.Events.EventArgs.Player;
     using PluginFramework.Attributes;
     using PluginFramework.Classes;
     using PluginFramework.Events.EventsArgs;
@@ -40,7 +40,8 @@
             {
                 if (ev.Item1.ItemId == ItemType.Flashlight.ToString("g") && ev.Item2.ItemId == ItemType.Radio.ToString("g"))
                 {
-                    ev.Result = new ItemBattery{
+                    ev.Result = new ItemBattery
+                    {
                         inv = ev.Player.Inventory
                     };
                 }

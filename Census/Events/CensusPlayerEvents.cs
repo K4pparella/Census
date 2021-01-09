@@ -86,7 +86,6 @@
             }
         }
 
-
         public static event CraftingItem CraftingItemEvent;
 
         public delegate void CraftingItem(CraftingItemEventArgs ev);
@@ -118,7 +117,6 @@
                 Log.Error($"Exception while handling UsingFemurBreakerEvent: {e}");
             }
         }
-
 
         public static event InteractingDoorButton InteractingDoorButtonEvent;
 

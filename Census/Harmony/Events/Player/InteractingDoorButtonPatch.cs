@@ -3,12 +3,10 @@
     using global::CensusCore.Events;
     using global::CensusCore.Events.EventArgs.Player;
     using HarmonyLib;
-    using System.Collections.Generic;
-    using System.Reflection.Emit;
     using VirtualBrightPlayz.SCP_ET.Player;
+    using VirtualBrightPlayz.SCP_ET.Translation;
     using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET.World.Interacts;
-    using VirtualBrightPlayz.SCP_ET.Translation;
 
     [HarmonyPatch(typeof(Interact), nameof(Interact.StartUseOnce))]
     public class InteractingDoorButtonPatch
@@ -24,6 +22,6 @@
                 return false;
             }
             return true;
-		}
+        }
     }
 }
