@@ -34,7 +34,7 @@
                     __instance.Items.Add(item);
                 }
                 else
-                {
+                { 
                     __instance.disablePickUpClientSound = true;
                 }
                 __instance.RpcSetInventory(__instance.CurItem, __instance.CurWornItem);

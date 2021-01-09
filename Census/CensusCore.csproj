@@ -79,10 +79,16 @@
     <Compile Include="Events\EventArgs\Player\DyingEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\HurtEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\PickingUpItemEventArgs.cs" />
+    <Compile Include="Harmony\Events\Player\BanningPatch.cs" />
     <Compile Include="Harmony\Events\Player\BlinkingPatch.cs" />
+    <Compile Include="Harmony\Events\Player\EnteringPockedDimensionPatch.cs" />
+    <Compile Include="Harmony\Events\Player\EscapingPocketDimensionPatch.cs" />
+    <Compile Include="Harmony\Events\Player\FailingToEscapePockedDimensionPatch.cs" />
     <Compile Include="Harmony\Events\Player\Interacting1123Patch.cs" />
     <Compile Include="Harmony\Events\Player\Interacting914KnobPatch.cs" />
     <Compile Include="Harmony\Events\Player\Interacting914Patch.cs" />
+    <Compile Include="Harmony\Events\Player\InteractingKeycardReader.cs" />
+    <Compile Include="Harmony\Events\Player\MutingPatch.cs" />
     <Compile Include="Harmony\Events\Player\ReceivingEffectPatch.cs" />
     <Compile Include="Harmony\Events\Player\ReceivingMissionPatch.cs" />
     <Compile Include="Harmony\Events\Player\SendingChatMessagePatch.cs" />
