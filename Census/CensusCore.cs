@@ -7,7 +7,7 @@
     using System;
     using System.Reflection;
 
-    public class CensusCore : Plugin
+    public class CensusCore : Plugin<CensusConfig>
     {
         public static HarmonyLib.Harmony Harmony { get; private set; }
 
@@ -23,18 +23,15 @@
         public static CensusWorldEvents WorldEvents { get; private set; }
         public static CensusPlayerEvents PlayerEvents { get; private set; }
 
-        public override void OnDisable()
+        public override void Disable()
         {
-            base.OnDisable();
-
             Harmony.UnpatchAll();
 
             Harmony = null;
         }
 
-        public override void OnEnable()
+        public override void Enable()
         {
-            base.OnEnable();
             Instance = this;
             WorldEvents = new CensusWorldEvents();
             PlayerEvents = new CensusPlayerEvents();

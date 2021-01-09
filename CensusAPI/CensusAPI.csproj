@@ -40,6 +40,10 @@
     <Reference Include="Mirror">
       <HintPath>..\..\SCPET-SERVER\SCP_ET_Data\Managed\Mirror.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SCP Escape Together\SCP_ET_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\RoleType.cs" />
+    <Compile Include="Interfaces\IConfig.cs" />
+    <Compile Include="Features\Paths.cs" />
     <Compile Include="Features\Log.cs" />
     <Compile Include="Features\Map.cs" />
     <Compile Include="Features\Player.cs" />

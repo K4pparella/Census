@@ -2,7 +2,7 @@
 
 namespace ExamplePlugin
 {
-    public class ExamplePlugin : CensusAPI.Features.Plugin
+    public class ExamplePlugin : CensusAPI.Features.Plugin<ExampleConfig>
     {
         public override string Name => "ExamplePlugin";
 
@@ -11,14 +11,12 @@ namespace ExamplePlugin
 
         public override string Author => "Census Team";
 
-        public override void OnDisable()
+        public override void Disable()
         {
-            base.OnDisable();
         }
 
-        public override void OnEnable()
+        public override void Enable()
         {
-            base.OnEnable();
             CensusCore.CensusCore.InjectEvents();
         }
     }

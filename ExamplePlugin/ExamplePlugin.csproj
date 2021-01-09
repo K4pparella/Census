@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ExampleCommand.cs" />
+    <Compile Include="ExampleConfig.cs" />
     <Compile Include="ExampleEventHandlers.cs" />
     <Compile Include="ExamplePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

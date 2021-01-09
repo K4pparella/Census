@@ -44,6 +44,10 @@
     <Reference Include="Mirror">
       <HintPath>..\..\SCPET-SERVER\SCP_ET_Data\Managed\Mirror.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SCP Escape Together\SCP_ET_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SCPETModding">
       <HintPath>..\..\SCPET-SERVER\SCP_ET_Data\Managed\SCPETModding.dll</HintPath>
     </Reference>
@@ -66,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CensusConfig.cs" />
     <Compile Include="CensusCore.cs" />
     <Compile Include="CensusEventHandlers.cs" />
     <Compile Include="Events\Attributes\CensusPlayerEvent.cs" />
