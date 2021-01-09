@@ -1,7 +1,7 @@
-﻿namespace CensusCore.Harmony.Events.World
+﻿namespace CensusCore.Harmony.Events.Player
 {
     using global::CensusCore.Events;
-    using global::CensusCore.Events.EventArgs.World;
+    using global::CensusCore.Events.EventArgs.Player;
     using HarmonyLib;
     using System.Collections.Generic;
     using System.Reflection.Emit;
@@ -16,7 +16,7 @@
         private static bool Prefix(Interact __instance, PlayerController plr, ref string status, ref ButtonErrorType errorType)
         {
             InteractingDoorButtonEventArgs ev = new InteractingDoorButtonEventArgs(plr, __instance.doors);
-            CensusWorldEvents.Instance.ExecuteInteractingDoorButton(ev);
+            CensusPlayerEvents.Instance.ExecuteInteractingDoorButton(ev);
             if (!ev.IsAllowed)
             {
                 status = TranslationManager.GetString(TextType.Misc, "INTERACTNOTHING");

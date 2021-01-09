@@ -118,5 +118,22 @@
                 Log.Error($"Exception while handling UsingFemurBreakerEvent: {e}");
             }
         }
+
+
+        public static event InteractingDoorButton InteractingDoorButtonEvent;
+
+        public delegate void InteractingDoorButton(InteractingDoorButtonEventArgs ev);
+
+        public void ExecuteInteractingDoorButton(InteractingDoorButtonEventArgs ev)
+        {
+            try
+            {
+                InteractingDoorButtonEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling InteractingDoorButtonEvent: {e}");
+            }
+        }
     }
 }

@@ -3,7 +3,6 @@
     using CensusAPI.Features;
     using CensusAPI.Enums;
     using CensusCore.Events.EventArgs.Player;
-    using CensusCore.Events.EventArgs.World;
     using CensusCore.Events.Attributes;
     using PluginFramework.Attributes;
     using PluginFramework.Classes;
@@ -21,7 +20,7 @@
             player.AddMission("Enjoy the game!");
         }
 
-        [CensusWorldEvent(CensusWorldEventType.InteractingDoorButton)]
+        [CensusPlayerEvent(CensusPlayerEventType.InteractingDoorButton)]
         public static void OnDoor(InteractingDoorButtonEventArgs ev)
         {
             try

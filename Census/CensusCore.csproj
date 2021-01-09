@@ -93,7 +93,7 @@
     <Compile Include="Harmony\Events\Player\ReceivingMissionPatch.cs" />
     <Compile Include="Harmony\Events\Player\SendingChatMessagePatch.cs" />
     <Compile Include="Events\EventArgs\Player\UsingFemurBreakerEventArgs.cs" />
-    <Compile Include="Events\EventArgs\World\InteractingDoorButtonEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\InteractingDoorButtonEventArgs.cs" />
     <Compile Include="Harmony\Events\Player\CraftingItemPatch.cs" />
     <Compile Include="Harmony\Events\Player\DeathPatch.cs" />
     <Compile Include="Harmony\Events\Player\DroppingItemPatch.cs" />
@@ -102,10 +102,12 @@
     <Compile Include="Harmony\Events\Player\PickingUpItemPatch.cs" />
     <Compile Include="Harmony\Events\Player\UnEquipingItemPatch.cs" />
     <Compile Include="Harmony\Events\Player\UsingFemurBreakerPatch.cs" />
-    <Compile Include="Harmony\Events\World\InteractingDoorButtonPatch.cs" />
+    <Compile Include="Harmony\Events\Player\InteractingDoorButtonPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Events\EventArgs\World\" />
+    <Folder Include="Harmony\Events\World\" />
     <Folder Include="Harmony\Features\" />
     <Folder Include="Harmony\Fixes\" />
   </ItemGroup>

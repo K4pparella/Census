@@ -1,4 +1,4 @@
-﻿namespace CensusCore.Events.EventArgs.World
+﻿namespace CensusCore.Events.EventArgs.Player
 {
     using System;
     using CensusAPI.Features;

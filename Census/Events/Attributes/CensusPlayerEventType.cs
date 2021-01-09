@@ -7,6 +7,7 @@
         Died,
         PickingUpItem,
         CraftingItem,
-        UsingFemurBreaker
+        UsingFemurBreaker,
+        InteractingDoorButton,
     }
 }
