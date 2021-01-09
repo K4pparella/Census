@@ -1,6 +1,6 @@
 ﻿namespace CensusAPI.Features
 {
-    using global::CensusAPI.Interfaces;
+    using CensusAPI.Interfaces;
     using System;
     using System.IO;
     using Newtonsoft.Json;
@@ -32,7 +32,7 @@
                 Log.Info($"Creating default config file...");
                 Config = new T();
                 StreamWriter sw = File.CreateText(cfg_path);
-                sw.Write(JsonConvert.SerializeObject(Config));
+                sw.Write(JsonConvert.SerializeObject(Config, Formatting.Indented));
                 sw.Close();
             }
             else

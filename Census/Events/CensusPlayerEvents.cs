@@ -133,5 +133,54 @@
                 Log.Error($"Exception while handling InteractingDoorButtonEvent: {e}");
             }
         }
+
+        public static event Blinking BlinkingEvent;
+
+        public delegate void Blinking(BlinkingEventArgs ev);
+
+        public void ExecuteBlinking(BlinkingEventArgs ev)
+        {
+            try
+            {
+                BlinkingEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling BlinkingEvent: {e}");
+            }
+        }
+
+        public static event DroppingItem DroppingItemEvent;
+
+        public delegate void DroppingItem(DroppingItemEventArgs ev);
+
+        public void ExecuteDroppingItem(DroppingItemEventArgs ev)
+        {
+            try
+            {
+                DroppingItemEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling DroppingItemEvent: {e}");
+            }
+        }
+
+        public static event EnteringPocketDimension EnteringPocketDimensionEvent;
+
+        public delegate void EnteringPocketDimension(EnteringPocketDimensionEventArgs ev);
+
+        public void ExecuteEnteringPocketDimension(EnteringPocketDimensionEventArgs ev)
+        {
+            try
+            {
+                EnteringPocketDimensionEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling EnteringPocketDimensionEvent: {e}");
+            }
+        }
+
     }
 }

@@ -79,9 +79,12 @@
     <Compile Include="Events\Attributes\CensusWorldEventType.cs" />
     <Compile Include="Events\CensusPlayerEvents.cs" />
     <Compile Include="Events\CensusWorldEvents.cs" />
+    <Compile Include="Events\EventArgs\Player\BlinkingEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\CraftingItemEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\DiedEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\DroppingItemEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\DyingEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\EnteringPocketDimensionEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\HurtEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\PickingUpItemEventArgs.cs" />
     <Compile Include="Harmony\Events\Player\BanningPatch.cs" />

@@ -9,5 +9,8 @@
         CraftingItem,
         UsingFemurBreaker,
         InteractingDoorButton,
+        Blinking,
+        DroppingItem,
+        EnteringPocketDimension
     }
 }
