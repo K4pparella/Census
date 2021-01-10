@@ -1,6 +1,6 @@
 ﻿namespace CensusCore.Harmony.Events.Player
 {
-    //PocketDim.ExitPD
+    //PocketDim.KillPD
     using global::CensusCore.Events;
     using global::CensusCore.Events.EventArgs.Player;
     using VirtualBrightPlayz.SCP_ET.Player;
@@ -9,13 +9,13 @@
     using VirtualBrightPlayz.SCP_ET.NPCs.SCP;
     using HarmonyLib;
 
-    [HarmonyPatch(typeof(PocketDim), nameof(PocketDim.ExitPD))]
-    public class EscapingPockedDimensionPatch
+    [HarmonyPatch(typeof(PocketDim), nameof(PocketDim.KillPD))]
+    public class FailingToEscapePocketDimensionPatch
     {
         private static bool Prefix(PocketDim __instance, PlayerController plr)
         {
-            EscapingPocketDimensionEventArgs ev = new EscapingPocketDimensionEventArgs(plr);
-            CensusPlayerEvents.Instance.ExecuteEscapingPocketDimension(ev);
+            FailingToEscapePocketDimensionEventArgs ev = new FailingToEscapePocketDimensionEventArgs(plr);
+            CensusPlayerEvents.Instance.ExecuteFailingToEscapePocketDimension(ev);
             return ev.IsAllowed;
         }
     }

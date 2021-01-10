@@ -8,7 +8,7 @@
     using VirtualBrightPlayz.SCP_ET.World.SCP_106;
     using VirtualBrightPlayz.SCP_ET.NPCs.SCP;
     using HarmonyLib;
-    //Inventory.UserCode_CmdDropItemIndex
+
     [HarmonyPatch(typeof(PocketDim), nameof(PocketDim.TeleportPlayer))]
     public class EnteringPockedDimensionPatch
     {

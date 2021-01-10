@@ -134,6 +134,22 @@
             }
         }
 
+        public static event Interacting1123 Interacting1123Event;
+
+        public delegate void Interacting1123(Interacting1123EventArgs ev);
+
+        public void ExecuteInteracting1123(Interacting1123EventArgs ev)
+        {
+            try
+            {
+                Interacting1123Event?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling Interacting1123Event: {e}");
+            }
+        }
+
         public static event Blinking BlinkingEvent;
 
         public delegate void Blinking(BlinkingEventArgs ev);
@@ -179,6 +195,54 @@
             catch (Exception e)
             {
                 Log.Error($"Exception while handling EnteringPocketDimensionEvent: {e}");
+            }
+        }
+
+        public static event EquipingItem EquipingItemEvent;
+
+        public delegate void EquipingItem(EquipingItemEventArgs ev);
+
+        public void ExecuteEquipingItem(EquipingItemEventArgs ev)
+        {
+            try
+            {
+                EquipingItemEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling EquipingItemEvent: {e}");
+            }
+        }
+
+        public static event EscapingPocketDimension EscapingPocketDimensionEvent;
+
+        public delegate void EscapingPocketDimension(EscapingPocketDimensionEventArgs ev);
+
+        public void ExecuteEscapingPocketDimension(EscapingPocketDimensionEventArgs ev)
+        {
+            try
+            {
+                EscapingPocketDimensionEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling EscapingPocketDimensionEvent: {e}");
+            }
+        }
+
+        public static event FailingToEscapePocketDimension FailingToEscapePocketDimensionEvent;
+
+        public delegate void FailingToEscapePocketDimension(FailingToEscapePocketDimensionEventArgs ev);
+
+        public void ExecuteFailingToEscapePocketDimension(FailingToEscapePocketDimensionEventArgs ev)
+        {
+            try
+            {
+                FailingToEscapePocketDimensionEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling FailingToEscapePocketDimensionEvent: {e}");
             }
         }
 

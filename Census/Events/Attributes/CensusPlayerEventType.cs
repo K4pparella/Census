@@ -11,6 +11,11 @@
         InteractingDoorButton,
         Blinking,
         DroppingItem,
-        EnteringPocketDimension
+        EnteringPocketDimension,
+        EquipingItem,
+        EscapingPocketDimension,
+        FailingToEscapePocketDimension,
+        Interacting1123,
+        Interacting914Knob
     }
 }
