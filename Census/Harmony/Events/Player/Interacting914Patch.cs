@@ -8,7 +8,7 @@
 
     //SCP914Key.StartUseOnce
     [HarmonyPatch(typeof(SCP914Key), nameof(SCP914Key.StartUseOnce))]
-    public class Interacting914KnobPatch
+    public class Interacting914Patch
     {
         private static bool Prefix(SCP914Key __instance, PlayerController user, bool isLocal, ref string status, ref ButtonErrorType errorType)
         {
