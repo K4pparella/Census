@@ -2,6 +2,8 @@
 
 SCP-ET Plugin framework extension
 
+Our discord: https://discord.gg/7JMaKjs2Vy
+
 # Installation
 Install Census on your SCP_ET server is really simple. 
 ### Windows
