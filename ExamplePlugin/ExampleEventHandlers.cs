@@ -34,7 +34,7 @@
         }
 
         [CensusPlayerEvent(CensusPlayerEventType.CraftingItem)]
-        public static void OnPickup(CraftingItemEventArgs ev)
+        public static void OnCraft(CraftingItemEventArgs ev)
         {
             try
             {

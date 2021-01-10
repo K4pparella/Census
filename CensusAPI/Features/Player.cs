@@ -43,9 +43,21 @@
             }
         }
 
-        public Quaternion BaseRotation => IPlayer.PlayerController.BaseRotation;
-
-        public float HeadRotation => IPlayer.PlayerController.HeadRotation;
+        public Quaternion BaseRotation {
+            get => IPlayer.PlayerController.BaseRotation;
+            set
+            {
+                IPlayer.PlayerController.BaseRotation = value;
+            }
+        }
+        public float HeadRotation
+        {
+            get => IPlayer.PlayerController.HeadRotation;
+            set
+            {
+                IPlayer.PlayerController.HeadRotation = value;
+            }
+        }
 
         public string Nickname
         {
@@ -63,6 +75,11 @@
             {
                 PlayerStats.NetworkClassId = (int)value;
             }
+        }
+
+        public string SteamID
+        {
+            get => Connection.AuthenticationData.ToString();
         }
 
         public Class Class => Role.Get(ClassId);
