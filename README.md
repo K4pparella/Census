@@ -1,3 +1,3 @@
 # Census
 
-SCP-ET Plugin framerowk extension
+SCP-ET Plugin framework extension
