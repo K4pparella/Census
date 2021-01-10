@@ -1,8 +1,9 @@
 ﻿namespace ExamplePlugin
 {
-    using System;
     using CensusAPI.Features;
-    public class ExamplePlugin : CensusAPI.Features.Plugin<ExampleConfig>
+    using System;
+
+    public class ExamplePlugin : Plugin<ExampleConfig>
     {
         public override string Name => "ExamplePlugin";
 

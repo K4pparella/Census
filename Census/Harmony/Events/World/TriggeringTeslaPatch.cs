@@ -2,9 +2,9 @@
 {
     using global::CensusCore.Events;
     using global::CensusCore.Events.EventArgs.World;
-    using VirtualBrightPlayz.SCP_ET.World;
-    using UnityEngine;
     using HarmonyLib;
+    using UnityEngine;
+    using VirtualBrightPlayz.SCP_ET.World;
 
     [HarmonyPatch(typeof(TeslaGateCollider), nameof(TeslaGateCollider.OnTriggerStay))]
     public class TriggeringTeslaPatch

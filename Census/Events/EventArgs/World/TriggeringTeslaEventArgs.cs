@@ -1,8 +1,9 @@
 ﻿namespace CensusCore.Events.EventArgs.World
 {
     using UnityEngine;
-    using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET.NPCs.Interfaces;
+    using VirtualBrightPlayz.SCP_ET.World;
+
     public class TriggeringTeslaEventArgs
     {
         public TriggeringTeslaEventArgs(TeslaGateCollider tesla, Collider collider)

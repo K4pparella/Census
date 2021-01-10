@@ -1,8 +1,9 @@
 ﻿namespace CensusCore.Events
 {
-    using EventArgs.World;
     using CensusAPI.Features;
+    using EventArgs.World;
     using System;
+
     public class CensusWorldEvents
     {
         public CensusWorldEvents()
