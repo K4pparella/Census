@@ -92,11 +92,6 @@
 
         public static bool IsScp106Recontained => FemurBreaker.recontained;
 
-        public void GlobalChatMessage(string text)
-        {
-            TcpConsole.chatqueue.Enqueue(text);
-        }
-
         public void SpawnNPC(string id, Vector3 position)
         {
             if (NPCDataBase.db.PrefabDB.ContainsKey(id))

@@ -3,6 +3,7 @@
     using Assets.MirrorEXT;
     using PluginFramework.Events;
     using VirtualBrightPlayz.SCP_ET;
+    using VirtualBrightPlayz.SCP_ET.ServerConsole;
     using VirtualBrightPlayz.SCP_ET.Misc;
     using VirtualBrightPlayz.SCP_ET.Player;
 
@@ -58,10 +59,7 @@
 
         public static void SendChatMessage(string message)
         {
-            foreach (Player p in Player.List)
-            {
-                p.SendChatMessage(message);
-            }
+            TcpConsole.chatqueue.Enqueue(message);
         }
 
         public static void EndRound(string message, float delay = 15f)
