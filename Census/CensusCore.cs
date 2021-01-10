@@ -43,7 +43,7 @@
 
         public static void InjectEvents()
         {
-            Log.Debug("Injecting CENSUS events...");
+            Log.Debug("Injecting CENSUS events...", Instance.Config.DebugMode);
             Assembly assembly = Assembly.GetCallingAssembly();
             foreach (Type type in assembly.GetTypes())
             {
@@ -54,7 +54,7 @@
                         CensusWorldEvent attrib = methodInfo.GetCustomAttribute<CensusWorldEvent>();
                         if (attrib != null)
                         {
-                            Log.Info($"Injected CENSUS event: {attrib.EventType:g}");
+                            Log.Debug($"Injected CENSUS event: {attrib.EventType:g}", Instance.Config.DebugMode);
                             EventInfo @event;
                             string name = attrib.EventType.ToString("g");
                             @event = CensusWorldEvents.Instance.GetType().GetEvent(name + "Event");
@@ -63,7 +63,7 @@
                         CensusPlayerEvent attrib1 = methodInfo.GetCustomAttribute<CensusPlayerEvent>();
                         if (attrib1 != null)
                         {
-                            Log.Info($"Injected CENSUS event: {attrib1.EventType:g}");
+                            Log.Debug($"Injected CENSUS event: {attrib1.EventType:g}", Instance.Config.DebugMode);
                             EventInfo @event;
                             string name = attrib1.EventType.ToString("g");
                             @event = CensusPlayerEvents.Instance.GetType().GetEvent(name + "Event");

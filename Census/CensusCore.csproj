@@ -68,6 +68,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\SCPET-SERVER\SCP_ET_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SCP Escape Together Dedicated Server\SCP_ET_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CensusConfig.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Events\EventArgs\Player\PickingUpItemEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\ReceivingMissionEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\SendingChatMessageEventArgs.cs" />
+    <Compile Include="Events\EventArgs\World\TriggeringTeslaEventArgs.cs" />
     <Compile Include="Harmony\Events\Player\BanningPatch.cs" />
     <Compile Include="Harmony\Events\Player\BlinkingPatch.cs" />
     <Compile Include="Harmony\Events\Player\EnteringPockedDimensionPatch.cs" />
@@ -118,14 +122,13 @@
     <Compile Include="Harmony\Events\Player\EquipingItemPatch.cs" />
     <Compile Include="Harmony\Events\Player\HurtPatch.cs" />
     <Compile Include="Harmony\Events\Player\PickingUpItemPatch.cs" />
+    <Compile Include="Harmony\Events\World\TriggeringTeslaPatch.cs" />
     <Compile Include="Harmony\Events\Player\UnEquipingItemPatch.cs" />
     <Compile Include="Harmony\Events\Player\UsingFemurBreakerPatch.cs" />
     <Compile Include="Harmony\Events\Player\InteractingDoorButtonPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Events\EventArgs\World\" />
-    <Folder Include="Harmony\Events\World\" />
     <Folder Include="Harmony\Features\" />
     <Folder Include="Harmony\Fixes\" />
   </ItemGroup>

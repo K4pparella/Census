@@ -26,6 +26,7 @@
             try
             {
                 ev.Player.SendChatMessage("You've interacted with a door!");
+                ev.IsAllowed = false;
             }
             catch (Exception)
             {

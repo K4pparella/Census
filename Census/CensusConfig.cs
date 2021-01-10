@@ -5,5 +5,6 @@
     public class CensusConfig : IConfig
     {
         public bool IsEnabled { get; set; } = true;
+        public bool DebugMode { get; set; } = false;
     }
 }
