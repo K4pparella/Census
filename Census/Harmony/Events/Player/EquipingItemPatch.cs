@@ -2,16 +2,16 @@
 {
     using global::CensusCore.Events;
     using global::CensusCore.Events.EventArgs.Player;
-    using VirtualBrightPlayz.SCP_ET.Player;
-    using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
     using HarmonyLib;
+    using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
+
     //Inventory.UserCode_CmdEquipItem
     [HarmonyPatch(typeof(Inventory), nameof(Inventory.UserCode_CmdEquipItem))]
     public class EquipingItemPatch
     {
-        private static bool Prefix(Inventory __instance,ref int index)
+        private static bool Prefix(Inventory __instance, ref int index)
         {
-            if(index == -1)
+            if (index == -1)
             {
                 return true;
             }

@@ -2,6 +2,7 @@
 {
     using CensusAPI.Features;
     using VirtualBrightPlayz.SCP_ET.Player;
+
     public class BlinkingEventArgs
     {
         public BlinkingEventArgs(PlayerController ctrl)

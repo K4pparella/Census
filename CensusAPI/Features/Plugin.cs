@@ -1,10 +1,11 @@
 ﻿namespace CensusAPI.Features
 {
     using CensusAPI.Interfaces;
+    using Newtonsoft.Json;
     using System;
     using System.IO;
-    using Newtonsoft.Json;
-    public abstract class Plugin<T>: PluginFramework.Plugin where T : IConfig, new()
+
+    public abstract class Plugin<T> : PluginFramework.Plugin where T : IConfig, new()
     {
         public abstract string Name { get; }
 
@@ -19,6 +20,7 @@
         public abstract Version Version { get; }
         public abstract string Author { get; }
         public T Config { get; private set; }
+
         public override void OnEnable()
         {
             Log.Info($"Loading plugin {Name}-{Version} (by {Author})");
@@ -26,7 +28,7 @@
             {
                 Directory.CreateDirectory(Paths.ConfigDir);
             }
-            string cfg_path = Path.Combine(Paths.ConfigDir, Prefix+".json");
+            string cfg_path = Path.Combine(Paths.ConfigDir, Prefix + ".json");
             if (!File.Exists(cfg_path))
             {
                 Log.Info($"Creating default config file...");
@@ -66,6 +68,7 @@
         }
 
         public abstract void Enable();
+
         public abstract void Disable();
     }
 }

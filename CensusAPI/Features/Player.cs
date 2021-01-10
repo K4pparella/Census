@@ -43,13 +43,15 @@
             }
         }
 
-        public Quaternion BaseRotation {
+        public Quaternion BaseRotation
+        {
             get => IPlayer.PlayerController.BaseRotation;
             set
             {
                 IPlayer.PlayerController.BaseRotation = value;
             }
         }
+
         public float HeadRotation
         {
             get => IPlayer.PlayerController.HeadRotation;

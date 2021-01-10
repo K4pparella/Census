@@ -2,9 +2,8 @@
 {
     using CensusAPI.Features;
     using System;
-    using VirtualBrightPlayz.SCP_ET;
-    using VirtualBrightPlayz.SCP_ET.World;
     using VirtualBrightPlayz.SCP_ET.Player;
+    using VirtualBrightPlayz.SCP_ET.World;
 
     public class Interacting1123EventArgs : EventArgs
     {

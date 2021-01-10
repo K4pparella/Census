@@ -1,6 +1,7 @@
 ﻿namespace ExamplePlugin
 {
     using CensusAPI.Interfaces;
+
     public class ExampleConfig : IConfig
     {
         public bool IsEnabled { get; set; } = true;

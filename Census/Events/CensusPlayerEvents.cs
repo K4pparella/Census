@@ -214,6 +214,22 @@
             }
         }
 
+        public static event UnEquipingItem UnEquipingItemEvent;
+
+        public delegate void UnEquipingItem(UnEquipingItemEventArgs ev);
+
+        public void ExecuteUnEquipingItem(UnEquipingItemEventArgs ev)
+        {
+            try
+            {
+                UnEquipingItemEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling UnEquipingItemEvent: {e}");
+            }
+        }
+
         public static event EscapingPocketDimension EscapingPocketDimensionEvent;
 
         public delegate void EscapingPocketDimension(EscapingPocketDimensionEventArgs ev);
@@ -246,5 +262,84 @@
             }
         }
 
+        public static event Interacting914Knob Interacting914KnobEvent;
+
+        public delegate void Interacting914Knob(Interacting914KnobEventArgs ev);
+
+        public void ExecuteInteracting914Knob(Interacting914KnobEventArgs ev)
+        {
+            try
+            {
+                Interacting914KnobEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling Interacting914KnobEvent: {e}");
+            }
+        }
+
+        public static event Interacting914 Interacting914Event;
+
+        public delegate void Interacting914(Interacting914EventArgs ev);
+
+        public void ExecuteInteracting914(Interacting914EventArgs ev)
+        {
+            try
+            {
+                Interacting914Event?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling Interacting914Event: {e}");
+            }
+        }
+
+        public static event InteractingKeycardReader InteractingKeycardReaderEvent;
+
+        public delegate void InteractingKeycardReader(InteractingKeycardReaderEventArgs ev);
+
+        public void ExecuteInteractingKeycardReader(InteractingKeycardReaderEventArgs ev)
+        {
+            try
+            {
+                InteractingKeycardReaderEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling InteractingKeycardReaderEvent: {e}");
+            }
+        }
+
+        public static event ReceivingMission ReceivingMissionEvent;
+
+        public delegate void ReceivingMission(ReceivingMissionEventArgs ev);
+
+        public void ExecuteReceivingMission(ReceivingMissionEventArgs ev)
+        {
+            try
+            {
+                ReceivingMissionEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling ReceivingMissionEvent: {e}");
+            }
+        }
+
+        public static event SendingChatMessage SendingChatMessageEvent;
+
+        public delegate void SendingChatMessage(SendingChatMessageEventArgs ev);
+
+        public void ExecuteSendingChatMessage(SendingChatMessageEventArgs ev)
+        {
+            try
+            {
+                SendingChatMessageEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling SendingChatMessageEvent: {e}");
+            }
+        }
     }
 }

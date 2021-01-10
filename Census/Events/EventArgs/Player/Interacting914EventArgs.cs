@@ -5,17 +5,17 @@
     using VirtualBrightPlayz.SCP_ET.Player;
     using VirtualBrightPlayz.SCP_ET.World;
 
-    public class Interacting914KnobEventArgs : EventArgs
+    public class Interacting914EventArgs : EventArgs
     {
-        public Interacting914KnobEventArgs(PlayerController p, SCP914Knob scp)
+        public Interacting914EventArgs(PlayerController p, SCP914Key scp)
         {
             Player = Player.Get(p);
-            Knob = scp;
+            Scp = scp;
             IsAllowed = true;
         }
 
         public bool IsAllowed { get; set; }
         public Player Player { get; }
-        public SCP914Knob Knob { get; }
+        public SCP914Key Scp { get; }
     }
 }

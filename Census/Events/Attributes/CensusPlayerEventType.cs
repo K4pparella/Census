@@ -16,6 +16,11 @@
         EscapingPocketDimension,
         FailingToEscapePocketDimension,
         Interacting1123,
-        Interacting914Knob
+        Interacting914Knob,
+        Interacting914,
+        InteractingKeycardReader,
+        ReceivingMission,
+        SendingChatMessage,
+        UnEquipingItem
     }
 }

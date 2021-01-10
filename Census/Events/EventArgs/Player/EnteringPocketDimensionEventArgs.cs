@@ -3,6 +3,7 @@
     using CensusAPI.Features;
     using VirtualBrightPlayz.SCP_ET.NPCs.SCP;
     using VirtualBrightPlayz.SCP_ET.Player;
+
     public class EnteringPocketDimensionEventArgs
     {
         public EnteringPocketDimensionEventArgs(PlayerController ctrl, SCP106 scp)

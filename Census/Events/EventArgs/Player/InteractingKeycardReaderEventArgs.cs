@@ -2,20 +2,20 @@
 {
     using CensusAPI.Features;
     using System;
+    using VirtualBrightPlayz.SCP_ET;
     using VirtualBrightPlayz.SCP_ET.Player;
-    using VirtualBrightPlayz.SCP_ET.World;
 
-    public class Interacting914KnobEventArgs : EventArgs
+    public class InteractingKeycardReaderEventArgs : EventArgs
     {
-        public Interacting914KnobEventArgs(PlayerController p, SCP914Knob scp)
+        public InteractingKeycardReaderEventArgs(PlayerController p, Door[] doors)
         {
             Player = Player.Get(p);
-            Knob = scp;
+            Doors = doors;
             IsAllowed = true;
         }
 
         public bool IsAllowed { get; set; }
         public Player Player { get; }
-        public SCP914Knob Knob { get; }
+        public Door[] Doors { get; }
     }
 }

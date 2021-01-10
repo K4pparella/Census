@@ -3,15 +3,17 @@
     using CensusAPI.Features;
     using VirtualBrightPlayz.SCP_ET.Player;
 
-    public class FailingToEscapePocketDimensionEventArgs
+    public class SendingChatMessageEventArgs
     {
-        public FailingToEscapePocketDimensionEventArgs(PlayerController ctrl)
+        public SendingChatMessageEventArgs(PlayerController ply, string message)
         {
-            Player = Player.Get(ctrl);
+            Player = Player.Get(ply);
+            Message = message;
             IsAllowed = true;
         }
 
         public Player Player { get; }
+        public string Message { get; set; }
         public bool IsAllowed { get; set; }
     }
 }

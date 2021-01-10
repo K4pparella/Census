@@ -4,7 +4,6 @@
     using global::CensusCore.Events.EventArgs.Player;
     using HarmonyLib;
     using VirtualBrightPlayz.SCP_ET.Player;
-    using VirtualBrightPlayz.SCP_ET.Translation;
     using VirtualBrightPlayz.SCP_ET.World;
 
     //SCP914Knob.StartUseOnce
@@ -18,6 +17,7 @@
                 return true;
             }
             Interacting914KnobEventArgs ev = new Interacting914KnobEventArgs(user, __instance);
+            CensusPlayerEvents.Instance.ExecuteInteracting914Knob(ev);
             if (!ev.IsAllowed)
             {
                 status = "";

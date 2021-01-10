@@ -82,6 +82,7 @@
     <Compile Include="Events\EventArgs\Player\BlinkingEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\CraftingItemEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\DiedEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\UnEquipingItemEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\FailingToEscapePocketDimensionEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\EscapingPocketDimensionEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\EquipingItemEventArgs.cs" />
@@ -89,9 +90,13 @@
     <Compile Include="Events\EventArgs\Player\DyingEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\EnteringPocketDimensionEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\HurtEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\Interacting914EventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\Interacting914KnobEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\Interacting1123EventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\InteractingKeycardReaderEventArgs.cs" />
     <Compile Include="Events\EventArgs\Player\PickingUpItemEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\ReceivingMissionEventArgs.cs" />
+    <Compile Include="Events\EventArgs\Player\SendingChatMessageEventArgs.cs" />
     <Compile Include="Harmony\Events\Player\BanningPatch.cs" />
     <Compile Include="Harmony\Events\Player\BlinkingPatch.cs" />
     <Compile Include="Harmony\Events\Player\EnteringPockedDimensionPatch.cs" />
@@ -100,7 +105,7 @@
     <Compile Include="Harmony\Events\Player\Interacting1123Patch.cs" />
     <Compile Include="Harmony\Events\Player\Interacting914KnobPatch.cs" />
     <Compile Include="Harmony\Events\Player\Interacting914Patch.cs" />
-    <Compile Include="Harmony\Events\Player\InteractingKeycardReader.cs" />
+    <Compile Include="Harmony\Events\Player\InteractingKeycardReaderPatch.cs" />
     <Compile Include="Harmony\Events\Player\MutingPatch.cs" />
     <Compile Include="Harmony\Events\Player\ReceivingEffectPatch.cs" />
     <Compile Include="Harmony\Events\Player\ReceivingMissionPatch.cs" />
