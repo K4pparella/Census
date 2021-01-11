@@ -12,6 +12,7 @@
     using VirtualBrightPlayz.SCP_ET.Player.Classes;
     using VirtualBrightPlayz.SCP_ET.Player.Effects;
     using VirtualBrightPlayz.SCP_ET.ServerGroups;
+    using VirtualBrightPlayz.SCP_ET.NPCs.Interfaces;
 
     public class Player
     {
@@ -126,28 +127,28 @@
 
         public bool InfiniteRun
         {
-            get => PlayerStats.NetworkisInfRun;
+            get => PlayerStats.isInfRun;
             set
             {
-                PlayerStats.NetworkisInfRun = value;
+                PlayerStats.isInfRun = value;
             }
         }
 
         public bool IsStaminaRecovering
         {
-            get => PlayerStats.NetworksprintIsRecovering;
+            get => PlayerStats.sprintIsRecovering;
             set
             {
-                PlayerStats.NetworksprintIsRecovering = value;
+                PlayerStats.sprintIsRecovering = value;
             }
         }
 
         public float StaminaRecoveringMultiplier
         {
-            get => PlayerStats.NetworkSprintRecoverMultiplier;
+            get => PlayerStats.SprintRecoverMultiplier;
             set
             {
-                PlayerStats.NetworkSprintRecoverMultiplier = value;
+                PlayerStats.SprintRecoverMultiplier = value;
             }
         }
 
@@ -339,7 +340,7 @@
             }
         }
 
-        public int CurrentDimension
+        public DimensionType CurrentDimension
         {
             get => PlayerStats.CurrentDimension;
             set

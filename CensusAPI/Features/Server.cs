@@ -1,5 +1,7 @@
 ﻿namespace CensusAPI.Features
 {
+    using Assets.Scripts;
+    using System.Collections.Generic;
     using Assets.MirrorEXT;
     using PluginFramework.Events;
     using VirtualBrightPlayz.SCP_ET;
@@ -65,11 +67,11 @@
         public static void EndRound(string message, float delay = 15f)
         {
             int num = 0;
-            foreach (PlayerList.Element element in PlayerList.instances)
+            foreach (KeyValuePair<PlayerController,PlayerListElement> element in PlayerList.List.players)
             {
-                if (element != null && !(element.playerScript == null))
+                if (element.Key != null && element.Value != null)
                 {
-                    if (element.playerScript.ClassId != 0)
+                    if (element.Key.ClassId != 0)
                     {
                         num++;
                     }

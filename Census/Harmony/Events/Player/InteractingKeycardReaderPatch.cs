@@ -14,7 +14,7 @@
     {
         private static bool Prefix(KeycardButton __instance, PlayerController plr, ref string status, ref ButtonErrorType errorType)
         {
-            InteractingKeycardReaderEventArgs ev = new InteractingKeycardReaderEventArgs(plr, __instance.doors);
+            InteractingKeycardReaderEventArgs ev = new InteractingKeycardReaderEventArgs(plr, __instance.ReqLevel, __instance.doors);
             CensusPlayerEvents.Instance.ExecuteInteractingKeycardReader(ev);
             if (!ev.IsAllowed)
             {
