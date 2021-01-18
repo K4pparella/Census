@@ -101,5 +101,21 @@
                 DatabaseManager.Spawn(gameObject);
             }
         }
+
+        public static void ClearBroadcasts()
+        {
+            foreach(Player p in Player.List)
+            {
+                p.ClearBroadcasts();
+            }
+        }
+
+        public static void Broadcast(string message, float time)
+        {
+            foreach (Player p in Player.List)
+            {
+                p.Broadcast(message, time);
+            }
+        }
     }
 }

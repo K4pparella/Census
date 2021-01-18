@@ -571,5 +571,15 @@
         {
             IPlayer.PlayerController.adminmenuScript.CmdAdminCommand(command);
         }
+
+        public void Broadcast(string message, float time)
+        {
+            IPlayer.PlayerController.Broadcast(message, time);
+        }
+
+        public void ClearBroadcasts()
+        {
+            IPlayer.PlayerController.ClearBroadcasts();
+        }
     }
 }
