@@ -39,7 +39,7 @@
             {
                 return;
             }
-            if (ev.Duration != duration && CensusCore.Instance.Config.WarnBanChange)
+            if (ev.Duration != duration && CensusCore.Instance.Config.LogBanDurationChanges)
                 Log.Warn($"Player {ev.PlayerBan.Nickname} ban duration has been changed by the {Assembly.GetCallingAssembly().GetName().Name} plugin");
             
             BanInfo item = new BanInfo
