@@ -50,7 +50,7 @@
             CensusPlayerEvents.Instance.ExecuteSendingStaffReport(ev);
             if (!ev.IsAllowed)
             {
-                __instance.TargetReportCallback(__instance.ConnectionToClient, ev.Success, ev.CallBackMessage, false);
+                __instance.TargetReportCallback(__instance.ConnectionToClient, ev.Success, ev.CallbackMessage, false);
                 return false;
             }
 

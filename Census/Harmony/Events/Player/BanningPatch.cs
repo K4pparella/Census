@@ -1,11 +1,9 @@
-﻿using CensusCore.Events;
-using CensusCore.Events.EventArgs.Player;
-
-namespace CensusCore.Harmony.Events.Player
+﻿namespace CensusCore.Harmony.Events.Player
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;using CensusAPI.Features;
+    using System.IO;
+    using CensusAPI.Features;
     using HarmonyLib;
     using Mirror;
     using Newtonsoft.Json;
@@ -13,6 +11,9 @@ namespace CensusCore.Harmony.Events.Player
     using VirtualBrightPlayz.SCP_ET.NetworkAuth;
     using VirtualBrightPlayz.SCP_ET.ServerGroups;
     using Player = CensusAPI.Features.Player;
+    using System.Reflection;
+    using global::CensusCore.Events;
+    using global::CensusCore.Events.EventArgs.Player;
     
     [HarmonyPatch(typeof(BanHandler), nameof(BanHandler.Addban))]
     public class BanningPatch
@@ -38,8 +39,8 @@ namespace CensusCore.Harmony.Events.Player
             {
                 return;
             }
-            if (ev.Duration != duration)
-                Log.Warn("Duration was changed by a plugin");
+            if (ev.Duration != duration && CensusCore.Instance.Config.WarnBanChange)
+                Log.Warn($"Player {ev.PlayerBan.Nickname} ban duration has been changed by the {Assembly.GetCallingAssembly().GetName().Name} plugin");
             
             BanInfo item = new BanInfo
             {

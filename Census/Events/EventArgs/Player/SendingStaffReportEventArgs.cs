@@ -10,13 +10,13 @@
             Reporter = reporter;
             Reported = reported;
             Reason = reason;
-            CallBackMessage = string.Empty;
+            CallbackMessage = string.Empty;
             Success = true;
             IsAllowed = true;
         }
         public Player Reporter { get; }
         public Player Reported { get; }
-        public string CallBackMessage { get; set; }
+        public string CallbackMessage { get; set; }
         public bool Success { get; set; }
         public string Reason { get; set; }
         public bool IsAllowed { get; set; }

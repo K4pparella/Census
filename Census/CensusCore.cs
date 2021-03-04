@@ -13,7 +13,7 @@
 
         public override string Name => "CensusCore";
 
-        public override Version Version => new Version(1, 0, 3);
+        public override Version Version => new Version(1, 1, 0);
 
         public override string Author => "Census Team";
 

@@ -6,5 +6,6 @@
     {
         public bool IsEnabled { get; set; } = true;
         public bool DebugMode { get; set; } = false;
+        public bool WarnBanChange { get; set; } = true;
     }
 }
