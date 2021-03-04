@@ -20,7 +20,7 @@
 
         public bool Hidden => false;
 
-        public void Invoke(PlayerController invoker, string[] args, out string response)
+        public void Invoke(PlayerController invoker, string[] args, out CommandResponse response)
         {
             foreach (VirtualBrightPlayz.SCP_ET.Door d in Map.Doors)
             {
@@ -29,7 +29,7 @@
             }
             Player pl = Player.Get(invoker);
             pl.ShowStatus("Command executed!");
-            response = "Command executed!";
+            response = CommandResponse.Create(true, "Command executed!");
         }
     }
 }

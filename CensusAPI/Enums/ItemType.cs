@@ -26,6 +26,10 @@
         Flashlight,
         Battery,
         ESRBadge,
-        Scp1025
+        Scp1025,
+        ItemCup,
+        MedkitSmall,
+        SCP500,
+        SCP860
     }
 }

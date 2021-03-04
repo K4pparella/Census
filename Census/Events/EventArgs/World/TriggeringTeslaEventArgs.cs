@@ -10,7 +10,7 @@
         {
             Object = collider;
             Tesla = tesla.parent;
-            IsAllowed = collider.GetComponent<ICanTriggerTesla>() != null && !collider.GetComponent<ICanTriggerTesla>().isValidTarget;
+            IsAllowed = collider.GetComponent<ICanTriggerTesla>() == null || collider.GetComponent<ICanTriggerTesla>().isValidTarget;
         }
 
         public Collider Object { get; }

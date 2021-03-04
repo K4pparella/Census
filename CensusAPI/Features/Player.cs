@@ -13,6 +13,7 @@
     using VirtualBrightPlayz.SCP_ET.Player.Effects;
     using VirtualBrightPlayz.SCP_ET.ServerGroups;
     using VirtualBrightPlayz.SCP_ET.NPCs.Interfaces;
+    using VirtualBrightPlayz.SCP_ET.NetworkAuth;
 
     public class Player
     {
@@ -82,7 +83,7 @@
 
         public string SteamID
         {
-            get => Connection.AuthenticationData.ToString();
+            get => ((AuthenticatedUser)Connection.AuthenticationData).SteamId.ToString();
         }
 
         public Class Class => Role.Get(ClassId);
@@ -425,6 +426,23 @@
             }
             return Dictionary.ContainsKey(ply) ? Dictionary[ply] : null;
         }
+        
+        public static Player Get(string steamid)
+        {
+            if (string.IsNullOrEmpty(steamid))
+            {
+                return null;
+            }
+
+            foreach (Player ply in Dictionary.Values)
+            {
+                if (ply.SteamID == steamid)
+                {
+                    return ply;
+                }
+            }
+            return null;
+        }
 
         public static Player Get(PlayerController ply)
         {
@@ -468,11 +486,6 @@
         public void Blink()
         {
             IPlayer.PlayerController.CmdBlink();
-        }
-
-        public void UnBlink()
-        {
-            IPlayer.PlayerController.CmdUnBlink();
         }
 
         public void Disconnect(string message)
@@ -561,9 +574,9 @@
             });
             if (TextChat.commands.ContainsKey(array[0].ToLower()))
             {
-                string text;
-                TextChat.commands[array[0].ToLower()].Invoke(IPlayer.PlayerController, array, out text);
-                SendChatMessage(text);
+                CommandResponse response;
+                TextChat.commands[array[0].ToLower()].Invoke(IPlayer.PlayerController, array, out response);
+                SendChatMessage(response.message);
             }
         }
 
@@ -580,6 +593,11 @@
         public void ClearBroadcasts()
         {
             IPlayer.PlayerController.ClearBroadcasts();
+        }
+        
+        public void AddHint(string message, Color color, float time, HintType type)
+        {
+            IPlayer.PlayerController.AddHint(message, color, time, type);
         }
     }
 }
