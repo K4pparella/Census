@@ -21,6 +21,8 @@
         InteractingKeycardReader,
         ReceivingMission,
         SendingChatMessage,
-        UnEquipingItem
+        UnEquipingItem,
+        SendingStaffReport,
+        Banning
     }
 }

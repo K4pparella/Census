@@ -341,5 +341,37 @@
                 Log.Error($"Exception while handling SendingChatMessageEvent: {e}");
             }
         }
+        
+        public static event Banning BanningEvent;
+
+        public delegate void Banning(BanningEventArgs ev);
+
+        public void ExecuteBanning(BanningEventArgs ev)
+        {
+            try
+            {
+                BanningEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling BanningEvent: {e}");
+            }
+        }
+        
+        public static event SendingStaffReport SendingStaffReportEvent;
+
+        public delegate void SendingStaffReport(SendingStaffReportEventArgs ev);
+
+        public void ExecuteSendingStaffReport(SendingStaffReportEventArgs ev)
+        {
+            try
+            {
+                SendingStaffReportEvent?.Invoke(ev);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling SendingStaffReportEvent: {e}");
+            }
+        }
     }
 }

@@ -28,5 +28,20 @@
                 Log.Error($"Exception while handling TriggeringTeslaEvent: {e}");
             }
         }
+        public static event WaitingForPlayers WaitingForPlayersEvent;
+
+        public delegate void WaitingForPlayers();
+
+        public void ExecuteWaitingForPlayers()
+        {
+            try
+            {
+                WaitingForPlayersEvent?.Invoke();
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Exception while handling WaitingForPlayersEvent: {e}");
+            }
+        }
     }
 }

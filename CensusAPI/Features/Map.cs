@@ -117,5 +117,12 @@
                 p.Broadcast(message, time);
             }
         }
+        public void AddHint(string message, Color color, float time, HintType type)
+        {
+            foreach (Player p in Player.List)
+            {
+                p.AddHint(message, color, time, type);
+            }
+        }
     }
 }

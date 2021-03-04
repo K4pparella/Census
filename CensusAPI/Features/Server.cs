@@ -44,7 +44,7 @@
         }
 
         public static string MapName => CustomNetworkManager.mapName;
-        public static int MaxPlayers => CustomNetworkManager.manager.server.MaxConnections;
+        public static int MaxPlayers => CustomNetworkManager.manager.maxPlayers;
         public static bool IsPublic => CustomNetworkManager.publicServer;
         public static bool IsDedicated => CustomNetworkManager.isDedicated;
 
