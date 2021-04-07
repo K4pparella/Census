@@ -24,3 +24,7 @@ Census's config will look like this:
 
 # Plugin Configs
 We do not know how the plugin developer will write his own config. So if you want to know something about it ask them ¯\_(ツ)_/¯
+
+# Downloads
+
+![img](https://img.shields.io/github/downloads/SpaceTm/census/total?style=for-the-badge)
