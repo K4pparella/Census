@@ -5,7 +5,7 @@ SCP-ET Plugin framework extension
 Our discord: https://discord.gg/7JMaKjs2Vy
 
 # Installation
-Install Census on your SCP_ET server is really simple. 
+Installing Census on your SCP_ET server is really simple. 
 ### Windows
 When you download the files, just put 00CensusCore.dll and the dependencies folder in /yourserverfolder/Plugins
 ### Linux
